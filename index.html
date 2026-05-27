@@ -2375,26 +2375,117 @@ function getExpenseDay(id,row){
   if(String(id).startsWith('0602')) return '0602';
   return '';
 }
-function updateExpenseSummary(){
-  let actualTotal=0,cashTotal=0,cardTotal=0;
-  const dayMap={0530:0,0531:0,0601:0,0602:0};
-  Object.entries(expenses).forEach(([id,row])=>{
-    const amount=Number(row.amount)||parseAmount(row.raw);
-    if(!amount || row.payment==='excluded') return;
-    actualTotal+=amount;
-    if(row.payment==='cash') cashTotal+=amount;
-    if(row.payment==='card') cardTotal+=amount;
-    const day=getExpenseDay(id,row);
-    if(Object.prototype.hasOwnProperty.call(dayMap,day)) dayMap[day]+=amount;
+function parseExpenseAmount(raw){
+  if(!raw) return 0;
+
+  let text = String(raw).trim().toLowerCase();
+  if(!text) return 0;
+
+  text = text.replaceAll(',', '').replace(/\s+/g, '');
+
+  // 48만동, 48만
+  const manMatch = text.match(/^([0-9]+(?:\.[0-9]+)?)만(?:동|vnd)?$/);
+  if(manMatch) {
+    return Math.round(parseFloat(manMatch[1]) * 10000);
+  }
+
+  // 480k
+  const kMatch = text.match(/^([0-9]+(?:\.[0-9]+)?)k$/);
+  if(kMatch) {
+    return Math.round(parseFloat(kMatch[1]) * 1000);
+  }
+
+  // 0.48m, 1.2m
+  const mMatch = text.match(/^([0-9]+(?:\.[0-9]+)?)m$/);
+  if(mMatch) {
+    return Math.round(parseFloat(mMatch[1]) * 1000000);
+  }
+
+  // 480000동, 480000vnd
+  text = text.replace(/동|vnd/g, '');
+
+  const num = parseFloat(text);
+  return Number.isFinite(num) ? Math.round(num) : 0;
+}
+
+function formatVnd(num){
+  return `${Math.round(num || 0).toLocaleString('ko-KR')}동`;
+}
+
+function getExpenseRowsFromDom(){
+  return [...document.querySelectorAll('.schedule-card')].map(card => {
+    const id = card.dataset.cardId;
+    const day = card.dataset.day;
+    const input = card.querySelector('.expense-input');
+    const method = card.querySelector('.expense-method');
+
+    const amount = parseExpenseAmount(input?.value || '');
+    const payMethod = method?.value || 'cash';
+
+    return {
+      id,
+      day,
+      amount,
+      method: payMethod
+    };
   });
-  const cashRemain=CASH_BUDGET-cashTotal;
-  document.getElementById('actualTotal').textContent=formatVND(actualTotal);
-  document.getElementById('cashTotal').textContent=formatVND(cashTotal);
-  document.getElementById('cardTotal').textContent=formatVND(cardTotal);
-  document.getElementById('cashRemain').textContent=formatVND(cashRemain);
-  document.getElementById('cashRemain').style.color=cashRemain<0?'#b23b3b':'';
-  document.getElementById('dailyTotals').textContent=
-    `날짜별 총액: 5/30 ${formatVND(dayMap['0530'])} · 5/31 ${formatVND(dayMap['0531'])} · 6/1 ${formatVND(dayMap['0601'])} · 6/2 ${formatVND(dayMap['0602'])}`;
+}
+
+function updateExpenseSummary(){
+  const rows = getExpenseRowsFromDom();
+
+  let total = 0;
+  let cash = 0;
+  let card = 0;
+
+  const byDay = {
+    '0530': 0,
+    '0531': 0,
+    '0601': 0,
+    '0602': 0
+  };
+
+  rows.forEach(row => {
+    // 기결제/제외는 전체 합계와 날짜별 합계에서 제외
+    if(row.method === 'excluded') return;
+
+    total += row.amount;
+
+    if(row.method === 'card') {
+      card += row.amount;
+    } else {
+      cash += row.amount;
+    }
+
+    if(Object.prototype.hasOwnProperty.call(byDay, row.day)) {
+      byDay[row.day] += row.amount;
+    }
+  });
+
+  const budget = 10000000;
+  const remain = budget - cash;
+
+  const totalEl = document.getElementById('expenseTotal');
+  const cashEl = document.getElementById('expenseCash');
+  const cardEl = document.getElementById('expenseCard');
+  const remainEl = document.getElementById('expenseRemain');
+  const dailyEl = document.getElementById('dailyTotals');
+
+  if(totalEl) totalEl.textContent = formatVnd(total);
+  if(cashEl) cashEl.textContent = formatVnd(cash);
+  if(cardEl) cardEl.textContent = formatVnd(card);
+  if(remainEl) {
+    remainEl.textContent = formatVnd(remain);
+    remainEl.classList.toggle('negative', remain < 0);
+  }
+
+  if(dailyEl) {
+    dailyEl.textContent =
+      `날짜별 총액: 5/30 ${formatVnd(byDay['0530'])} · ` +
+      `5/31 ${formatVnd(byDay['0531'])} · ` +
+      `6/1 ${formatVnd(byDay['0601'])} · ` +
+      `6/2 ${formatVnd(byDay['0602'])}`;
+  }
 }
 function applyState(){
   cards.forEach(card=>{
@@ -2422,6 +2513,44 @@ function updateFilter(){
   });
   document.getElementById('emptyState').style.display=visibleCardCount()===0&&currentFilter!=='guide'?'block':'none';
 }
+const EXPENSE_KEY = 'hoian_danang_expenses_v24';
+
+function saveExpenses(){
+  const data = {};
+
+  document.querySelectorAll('.schedule-card').forEach(card => {
+    const id = card.dataset.cardId;
+    const day = card.dataset.day;
+    const input = card.querySelector('.expense-input');
+    const method = card.querySelector('.expense-method');
+
+    if(!id || !input || !method) return;
+
+    data[id] = {
+      day,
+      raw: input.value || '',
+      method: method.value || 'cash'
+    };
+  });
+
+  localStorage.setItem(EXPENSE_KEY, JSON.stringify(data));
+}
+
+function loadExpenses(){
+  const data = JSON.parse(localStorage.getItem(EXPENSE_KEY) || '{}');
+
+  document.querySelectorAll('.schedule-card').forEach(card => {
+    const id = card.dataset.cardId;
+    const saved = data[id];
+    if(!saved) return;
+
+    const input = card.querySelector('.expense-input');
+    const method = card.querySelector('.expense-method');
+
+    if(input) input.value = saved.raw || '';
+    if(method) method.value = saved.method || 'cash';
+  });
+}
 function visibleCardCount(){
   return cards.filter(card=>{
     const section=card.closest('.day-section');
@@ -2448,6 +2577,19 @@ document.addEventListener('click',e=>{
   const dayReset=e.target.closest('[data-reset-day]');
   if(dayReset){const day=dayReset.dataset.resetDay;cards.filter(c=>c.dataset.day===day).forEach(c=>completed.delete(c.dataset.cardId));saveCompleted();applyState();return;}
 });
+document.addEventListener('input', e => {
+  if(e.target.classList.contains('expense-input')) {
+    saveExpenses();
+    updateExpenseSummary();
+  }
+});
+
+document.addEventListener('change', e => {
+  if(e.target.classList.contains('expense-method')) {
+    saveExpenses();
+    updateExpenseSummary();
+  }
+});
 document.getElementById('toggleCompleted').addEventListener('click',()=>{
   body.classList.toggle('hide-completed');
   document.getElementById('toggleCompleted').textContent=body.classList.contains('hide-completed')?'완료 일정 보기':'완료 일정 숨기기';
@@ -2465,8 +2607,9 @@ document.getElementById('resetExpenses').addEventListener('click',()=>{
     updateExpenseSummary();
   }
 });
-initExpenseInputs();
+loadExpenses();
 applyState();
+updateExpenseSummary();
 </script>
 </body>
 </html>
