@@ -457,6 +457,59 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
   .expense-head span{text-align:left;display:block;margin-top:3px}
   .expense-input-row{grid-template-columns:1fr}
 }
+
+/* v25 expense full fix */
+.expense-daily .daily-breakdown{
+  display:grid;
+  gap:7px;
+}
+.expense-daily .daily-row{
+  background:#fbfaf6;
+  border:1px solid #e5e1d7;
+  border-radius:14px;
+  padding:8px 9px;
+}
+.expense-daily .daily-title{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:center;
+  font-size:12px;
+}
+.expense-daily .daily-title b{
+  color:var(--ink);
+}
+.expense-daily .daily-title strong{
+  color:#49685f;
+  font-size:12px;
+  text-align:right;
+}
+.expense-daily .daily-bar{
+  height:6px;
+  border-radius:999px;
+  background:#e8e4dc;
+  overflow:hidden;
+  margin-top:6px;
+}
+.expense-daily .daily-bar i{
+  display:block;
+  height:100%;
+  border-radius:999px;
+  background:linear-gradient(90deg,#6f8f84,#b8c9bf);
+  width:0%;
+}
+.expense-stat strong.negative,
+.negative{
+  color:#a94442!important;
+}
+.expense-stat strong small{
+  display:block;
+  margin-top:2px;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:700;
+}
+
 </style>
 </head>
 <body class="hide-completed">
@@ -2295,318 +2348,387 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </main>
 </div>
 <script>
-const KEY='hoian_danang_cards_v23_expense_text_input_completed';
-const EXPENSE_KEY='hoian_danang_cards_v23_expense_text_input_spending';
-const CASH_BUDGET=10000000;
-let completed=new Set(JSON.parse(localStorage.getItem(KEY)||localStorage.getItem('hoian_danang_cards_v22_expense_dawn_market_completed')||'[]'));
-let expenses=JSON.parse(localStorage.getItem(EXPENSE_KEY)||localStorage.getItem('hoian_danang_cards_v22_expense_dawn_market_spending')||'{}');
-let currentFilter='all';
-const body=document.body;
-const cards=[...document.querySelectorAll('.schedule-card')];
+/*
+  v25 full fix
+  - Uses actual HTML ids: actualTotal, cashTotal, cardTotal, cashRemain, dailyTotals
+  - Uses actual select class/data attr: .payment-select / [data-payment-select]
+  - Daily totals are calculated directly from current DOM inputs, so they update immediately
+  - Shows per-day percentage against 10,000,000 VND cash budget
+*/
+const COMPLETED_KEY = 'hoian_danang_cards_v25_fullfix_completed';
+const EXPENSE_KEY = 'hoian_danang_cards_v25_fullfix_spending';
+const CASH_BUDGET = 10000000;
 
-function formatVND(n){
-  const value=Math.round(Number(n)||0);
-  return value.toLocaleString('ko-KR')+'동';
+const LEGACY_COMPLETED_KEYS = [
+  'hoian_danang_cards_v23_expense_text_input_completed',
+  'hoian_danang_cards_v22_expense_dawn_market_completed',
+  'hoian_danang_cards_v21_0531_alamanda_morning_spa_completed'
+];
+
+const LEGACY_EXPENSE_KEYS = [
+  'hoian_danang_cards_v24_expense_livefix_spending',
+  'hoian_danang_expenses_v24',
+  'hoian_danang_cards_v23_expense_text_input_spending',
+  'hoian_danang_cards_v22_expense_dawn_market_spending'
+];
+
+let completed = new Set(readJsonWithFallback(COMPLETED_KEY, LEGACY_COMPLETED_KEYS, []));
+let currentFilter = 'all';
+
+const body = document.body;
+const cards = [...document.querySelectorAll('.schedule-card')];
+
+function readJsonWithFallback(primaryKey, fallbackKeys, defaultValue){
+  const keys = [primaryKey, ...(fallbackKeys || [])];
+  for(const key of keys){
+    try{
+      const raw = localStorage.getItem(key);
+      if(raw){
+        const parsed = JSON.parse(raw);
+        return parsed;
+      }
+    }catch(err){}
+  }
+  return defaultValue;
 }
+
+function formatVND(value){
+  const n = Math.round(Number(value) || 0);
+  return n.toLocaleString('ko-KR') + '동';
+}
+
+function formatPct(value, base = CASH_BUDGET){
+  const n = Number(value) || 0;
+  if(!base) return '0.0%';
+  return (n / base * 100).toFixed(1) + '%';
+}
+
+function clampPct(value){
+  const n = Number(value) || 0;
+  if(n <= 0) return 0;
+  return Math.min(100, n / CASH_BUDGET * 100);
+}
+
 function parseAmount(raw){
   if(!raw) return 0;
-  let s=String(raw).trim().toLowerCase();
+
+  let s = String(raw).trim().toLowerCase();
   if(!s) return 0;
-  s=s.replace(/,/g,'').replace(/\s/g,'').replace(/vnd|동|₫/g,'');
-  if(s.includes('만')){
-    const num=parseFloat(s.split('만')[0].replace(/[^\d.]/g,''));
-    return Number.isFinite(num)?Math.round(num*10000):0;
-  }
-  if(s.endsWith('k')){
-    const num=parseFloat(s.replace(/[^\d.]/g,''));
-    return Number.isFinite(num)?Math.round(num*1000):0;
-  }
-  if(s.endsWith('m')){
-    const num=parseFloat(s.replace(/[^\d.]/g,''));
-    return Number.isFinite(num)?Math.round(num*1000000):0;
-  }
-  const digits=s.replace(/[^\d.]/g,'');
-  const num=parseFloat(digits);
-  return Number.isFinite(num)?Math.round(num):0;
-}
-function saveCompleted(){localStorage.setItem(KEY,JSON.stringify([...completed]));}
-function saveExpenses(){localStorage.setItem(EXPENSE_KEY,JSON.stringify(expenses));}
 
-function initExpenseInputs(){
-  let migrated=false;
-  cards.forEach(card=>{
-    const id=card.dataset.cardId;
-    const input=card.querySelector('[data-expense-input]');
-    const select=card.querySelector('[data-payment-select]');
-    const saved=expenses[id]||{};
-    if((saved.raw||saved.amount||saved.payment) && !saved.day){
-      saved.day=card.dataset.day||'';
-      expenses[id]=saved;
-      migrated=true;
-    }
-    if(input) input.value=saved.raw||'';
-    if(select) select.value=saved.payment||select.dataset.defaultPayment||'cash';
-  });
-  if(migrated) saveExpenses();
-}
-function updateOneExpense(id){
-  const card=document.querySelector(`[data-card-id="${CSS.escape(id)}"]`);
-  if(!card) return;
-  const input=card.querySelector('[data-expense-input]');
-  const select=card.querySelector('[data-payment-select]');
-  if(!input||!select) return;
-  const raw=input.value||'';
-  const amount=parseAmount(raw);
-  const payment=select.value||'cash';
-  expenses[id]={raw,amount,payment,day:card.dataset.day||''};
-  if(!raw && payment===(select.dataset.defaultPayment||'cash')){
-    delete expenses[id];
+  s = s
+    .replace(/,/g, '')
+    .replace(/\s+/g, '')
+    .replace(/₫|vnd|동|원/g, '');
+
+  // 450.000 style thousand separator
+  if(/^\d{1,3}(\.\d{3})+$/.test(s)){
+    s = s.replace(/\./g, '');
   }
-  saveExpenses();
-  updateExpenseSummary();
-}
-function getExpenseDay(id,row){
-  if(row && row.day) return row.day;
-  const card=document.querySelector(`[data-card-id="${CSS.escape(id)}"]`);
-  if(card && card.dataset.day) return card.dataset.day;
-  if(String(id).startsWith('0530')) return '0530';
-  if(String(id).startsWith('0531')) return '0531';
-  if(String(id).startsWith('0601')) return '0601';
-  if(String(id).startsWith('0602')) return '0602';
-  return '';
-}
-function parseExpenseAmount(raw){
-  if(!raw) return 0;
 
-  let text = String(raw).trim().toLowerCase();
-  if(!text) return 0;
-
-  text = text.replaceAll(',', '').replace(/\s+/g, '');
-
-  // 48만동, 48만
-  const manMatch = text.match(/^([0-9]+(?:\.[0-9]+)?)만(?:동|vnd)?$/);
-  if(manMatch) {
+  // 48만, 48.5만
+  const manMatch = s.match(/^([0-9]+(?:\.[0-9]+)?)만$/);
+  if(manMatch){
     return Math.round(parseFloat(manMatch[1]) * 10000);
   }
 
   // 480k
-  const kMatch = text.match(/^([0-9]+(?:\.[0-9]+)?)k$/);
-  if(kMatch) {
+  const kMatch = s.match(/^([0-9]+(?:\.[0-9]+)?)k$/);
+  if(kMatch){
     return Math.round(parseFloat(kMatch[1]) * 1000);
   }
 
   // 0.48m, 1.2m
-  const mMatch = text.match(/^([0-9]+(?:\.[0-9]+)?)m$/);
-  if(mMatch) {
+  const mMatch = s.match(/^([0-9]+(?:\.[0-9]+)?)m$/);
+  if(mMatch){
     return Math.round(parseFloat(mMatch[1]) * 1000000);
   }
 
-  // 480000동, 480000vnd
-  text = text.replace(/동|vnd/g, '');
-
-  const num = parseFloat(text);
-  return Number.isFinite(num) ? Math.round(num) : 0;
+  const n = parseFloat(s.replace(/[^\d.]/g, ''));
+  return Number.isFinite(n) ? Math.round(n) : 0;
 }
 
-function formatVnd(num){
-  return `${Math.round(num || 0).toLocaleString('ko-KR')}동`;
+function getCardExpense(card){
+  const id = card.dataset.cardId || '';
+  const day = card.dataset.day || '';
+  const input = card.querySelector('[data-expense-input], .expense-input');
+  const select = card.querySelector('[data-payment-select], .payment-select');
+
+  const raw = input ? input.value : '';
+  const amount = parseAmount(raw);
+  const defaultPayment = select?.dataset.defaultPayment || 'cash';
+  const payment = select?.value || defaultPayment;
+
+  return {id, day, raw, amount, payment};
 }
 
-function getExpenseRowsFromDom(){
-  return [...document.querySelectorAll('.schedule-card')].map(card => {
-    const id = card.dataset.cardId;
-    const day = card.dataset.day;
-    const input = card.querySelector('.expense-input');
-    const method = card.querySelector('.expense-method');
+function getAllExpenseRows(){
+  return cards.map(getCardExpense);
+}
 
-    const amount = parseExpenseAmount(input?.value || '');
-    const payMethod = method?.value || 'cash';
+function saveCompleted(){
+  localStorage.setItem(COMPLETED_KEY, JSON.stringify([...completed]));
+}
 
-    return {
-      id,
-      day,
-      amount,
-      method: payMethod
+function saveExpenses(){
+  const data = {};
+  getAllExpenseRows().forEach(row => {
+    data[row.id] = {
+      day: row.day,
+      raw: row.raw,
+      amount: row.amount,
+      payment: row.payment
     };
   });
+  localStorage.setItem(EXPENSE_KEY, JSON.stringify(data));
+}
+
+function loadExpenses(){
+  const data = readJsonWithFallback(EXPENSE_KEY, LEGACY_EXPENSE_KEYS, {});
+  cards.forEach(card => {
+    const id = card.dataset.cardId;
+    const saved = data[id] || {};
+    const input = card.querySelector('[data-expense-input], .expense-input');
+    const select = card.querySelector('[data-payment-select], .payment-select');
+
+    if(input){
+      input.value = saved.raw || '';
+      input.setAttribute('type', 'text');
+      input.setAttribute('inputmode', 'text');
+      input.setAttribute('autocomplete', 'off');
+      input.setAttribute('autocapitalize', 'off');
+      input.setAttribute('spellcheck', 'false');
+      input.setAttribute('enterkeyhint', 'done');
+      if(!input.getAttribute('placeholder')){
+        input.setAttribute('placeholder', '예: 480000 / 48만동 / 480k');
+      }
+    }
+
+    if(select){
+      const fallbackPayment = select.dataset.defaultPayment || 'cash';
+      select.value = saved.payment || saved.method || fallbackPayment;
+    }
+  });
+  saveExpenses();
 }
 
 function updateExpenseSummary(){
-  const rows = getExpenseRowsFromDom();
+  const rows = getAllExpenseRows();
+
+  const byDay = {
+    '0530': {total:0, cash:0, card:0},
+    '0531': {total:0, cash:0, card:0},
+    '0601': {total:0, cash:0, card:0},
+    '0602': {total:0, cash:0, card:0}
+  };
 
   let total = 0;
   let cash = 0;
   let card = 0;
 
-  const byDay = {
-    '0530': 0,
-    '0531': 0,
-    '0601': 0,
-    '0602': 0
-  };
-
   rows.forEach(row => {
-    // 기결제/제외는 전체 합계와 날짜별 합계에서 제외
-    if(row.method === 'excluded') return;
+    if(row.payment === 'excluded') return;
 
-    total += row.amount;
+    const amount = row.amount || 0;
+    total += amount;
 
-    if(row.method === 'card') {
-      card += row.amount;
-    } else {
-      cash += row.amount;
+    if(row.payment === 'card'){
+      card += amount;
+    }else{
+      cash += amount;
     }
 
-    if(Object.prototype.hasOwnProperty.call(byDay, row.day)) {
-      byDay[row.day] += row.amount;
+    if(byDay[row.day]){
+      byDay[row.day].total += amount;
+      if(row.payment === 'card') byDay[row.day].card += amount;
+      else byDay[row.day].cash += amount;
     }
   });
 
-  const budget = 10000000;
-  const remain = budget - cash;
+  const remain = CASH_BUDGET - cash;
 
-  const totalEl = document.getElementById('expenseTotal');
-  const cashEl = document.getElementById('expenseCash');
-  const cardEl = document.getElementById('expenseCard');
-  const remainEl = document.getElementById('expenseRemain');
-  const dailyEl = document.getElementById('dailyTotals');
+  const actualTotal = document.getElementById('actualTotal');
+  const cashTotal = document.getElementById('cashTotal');
+  const cardTotal = document.getElementById('cardTotal');
+  const cashRemain = document.getElementById('cashRemain');
+  const dailyTotals = document.getElementById('dailyTotals');
 
-  if(totalEl) totalEl.textContent = formatVnd(total);
-  if(cashEl) cashEl.textContent = formatVnd(cash);
-  if(cardEl) cardEl.textContent = formatVnd(card);
-  if(remainEl) {
-    remainEl.textContent = formatVnd(remain);
-    remainEl.classList.toggle('negative', remain < 0);
+  if(actualTotal){
+    actualTotal.innerHTML = `${formatVND(total)}<small>${formatPct(total)} 사용</small>`;
+  }
+  if(cashTotal){
+    cashTotal.innerHTML = `${formatVND(cash)}<small>${formatPct(cash)} 사용</small>`;
+  }
+  if(cardTotal){
+    cardTotal.innerHTML = `${formatVND(card)}<small>현금 계산 제외</small>`;
+  }
+  if(cashRemain){
+    cashRemain.innerHTML = `${formatVND(remain)}<small>현금 ${formatPct(cash)} 사용</small>`;
+    cashRemain.classList.toggle('negative', remain < 0);
   }
 
-  if(dailyEl) {
-    dailyEl.textContent =
-      `날짜별 총액: 5/30 ${formatVnd(byDay['0530'])} · ` +
-      `5/31 ${formatVnd(byDay['0531'])} · ` +
-      `6/1 ${formatVnd(byDay['0601'])} · ` +
-      `6/2 ${formatVnd(byDay['0602'])}`;
+  if(dailyTotals){
+    const labelMap = {
+      '0530': '5/30',
+      '0531': '5/31',
+      '0601': '6/1',
+      '0602': '6/2'
+    };
+
+    dailyTotals.innerHTML = `
+      <div class="daily-breakdown" aria-label="날짜별 지출 총액과 사용률">
+        ${Object.keys(labelMap).map(day => {
+          const row = byDay[day];
+          const width = clampPct(row.total).toFixed(1);
+          return `
+            <div class="daily-row">
+              <div class="daily-title">
+                <b>${labelMap[day]}</b>
+                <strong>${formatVND(row.total)} · ${formatPct(row.total)}</strong>
+              </div>
+              <div class="daily-bar"><i style="width:${width}%"></i></div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
   }
 }
+
 function applyState(){
-  cards.forEach(card=>{
-    const id=card.dataset.cardId;
-    const done=completed.has(id);
-    card.classList.toggle('completed',done);
-    const c=card.querySelector('[data-complete]');
-    const u=card.querySelector('[data-undo]');
-    if(c)c.hidden=done;
-    if(u)u.hidden=!done;
+  cards.forEach(card => {
+    const id = card.dataset.cardId;
+    const done = completed.has(id);
+    card.classList.toggle('completed', done);
+
+    const completeBtn = card.querySelector('[data-complete]');
+    const undoBtn = card.querySelector('[data-undo]');
+    if(completeBtn) completeBtn.hidden = done;
+    if(undoBtn) undoBtn.hidden = !done;
   });
-  const total=cards.length, done=completed.size, pct=total?Math.round(done/total*100):0;
-  document.getElementById('progressText').textContent=pct+'%';
-  document.getElementById('progressCount').textContent=`${done}/${total} 완료`;
-  document.getElementById('progressBar').style.width=pct+'%';
+
+  const totalCards = cards.length;
+  const doneCards = completed.size;
+  const pct = totalCards ? Math.round(doneCards / totalCards * 100) : 0;
+
+  document.getElementById('progressText').textContent = pct + '%';
+  document.getElementById('progressCount').textContent = `${doneCards}/${totalCards} 완료`;
+  document.getElementById('progressBar').style.width = pct + '%';
+
   updateFilter();
   updateExpenseSummary();
 }
+
 function updateFilter(){
-  document.querySelectorAll('.day-section').forEach(sec=>{
-    const isGuide=sec.classList.contains('guide-section');
-    const day=sec.dataset.day;
-    const show=(currentFilter==='all')||(currentFilter==='guide'&&isGuide)||(currentFilter===day);
-    sec.classList.toggle('hidden-filter',!show);
-  });
-  document.getElementById('emptyState').style.display=visibleCardCount()===0&&currentFilter!=='guide'?'block':'none';
-}
-const EXPENSE_KEY = 'hoian_danang_expenses_v24';
+  document.querySelectorAll('.day-section').forEach(sec => {
+    const isGuide = sec.classList.contains('guide-section');
+    const day = sec.dataset.day;
+    const show =
+      currentFilter === 'all' ||
+      (currentFilter === 'guide' && isGuide) ||
+      currentFilter === day;
 
-function saveExpenses(){
-  const data = {};
-
-  document.querySelectorAll('.schedule-card').forEach(card => {
-    const id = card.dataset.cardId;
-    const day = card.dataset.day;
-    const input = card.querySelector('.expense-input');
-    const method = card.querySelector('.expense-method');
-
-    if(!id || !input || !method) return;
-
-    data[id] = {
-      day,
-      raw: input.value || '',
-      method: method.value || 'cash'
-    };
+    sec.classList.toggle('hidden-filter', !show);
   });
 
-  localStorage.setItem(EXPENSE_KEY, JSON.stringify(data));
+  const emptyState = document.getElementById('emptyState');
+  if(emptyState){
+    emptyState.style.display = visibleCardCount() === 0 && currentFilter !== 'guide' ? 'block' : 'none';
+  }
 }
 
-function loadExpenses(){
-  const data = JSON.parse(localStorage.getItem(EXPENSE_KEY) || '{}');
-
-  document.querySelectorAll('.schedule-card').forEach(card => {
-    const id = card.dataset.cardId;
-    const saved = data[id];
-    if(!saved) return;
-
-    const input = card.querySelector('.expense-input');
-    const method = card.querySelector('.expense-method');
-
-    if(input) input.value = saved.raw || '';
-    if(method) method.value = saved.method || 'cash';
-  });
-}
 function visibleCardCount(){
-  return cards.filter(card=>{
-    const section=card.closest('.day-section');
-    if(section.classList.contains('hidden-filter')) return false;
-    if(body.classList.contains('hide-completed')&&card.classList.contains('completed')) return false;
+  return cards.filter(card => {
+    const section = card.closest('.day-section');
+    if(section?.classList.contains('hidden-filter')) return false;
+    if(body.classList.contains('hide-completed') && card.classList.contains('completed')) return false;
     return true;
   }).length;
 }
-document.addEventListener('input',e=>{
-  const input=e.target.closest('[data-expense-input]');
-  if(input){updateOneExpense(input.dataset.expenseInput);}
-});
-document.addEventListener('change',e=>{
-  const select=e.target.closest('[data-payment-select]');
-  if(select){updateOneExpense(select.dataset.paymentSelect);}
-});
-document.addEventListener('click',e=>{
-  const complete=e.target.closest('[data-complete]');
-  if(complete){completed.add(complete.dataset.complete);saveCompleted();applyState();return;}
-  const undo=e.target.closest('[data-undo]');
-  if(undo){completed.delete(undo.dataset.undo);saveCompleted();applyState();return;}
-  const chip=e.target.closest('.chip');
-  if(chip){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));chip.classList.add('active');currentFilter=chip.dataset.filter;updateFilter();return;}
-  const dayReset=e.target.closest('[data-reset-day]');
-  if(dayReset){const day=dayReset.dataset.resetDay;cards.filter(c=>c.dataset.day===day).forEach(c=>completed.delete(c.dataset.cardId));saveCompleted();applyState();return;}
-});
+
 document.addEventListener('input', e => {
-  if(e.target.classList.contains('expense-input')) {
+  if(e.target.closest('[data-expense-input], .expense-input')){
     saveExpenses();
     updateExpenseSummary();
   }
 });
 
 document.addEventListener('change', e => {
-  if(e.target.classList.contains('expense-method')) {
+  if(e.target.closest('[data-payment-select], .payment-select')){
     saveExpenses();
     updateExpenseSummary();
   }
 });
-document.getElementById('toggleCompleted').addEventListener('click',()=>{
+
+document.addEventListener('click', e => {
+  const complete = e.target.closest('[data-complete]');
+  if(complete){
+    completed.add(complete.dataset.complete);
+    saveCompleted();
+    applyState();
+    return;
+  }
+
+  const undo = e.target.closest('[data-undo]');
+  if(undo){
+    completed.delete(undo.dataset.undo);
+    saveCompleted();
+    applyState();
+    return;
+  }
+
+  const chip = e.target.closest('.chip');
+  if(chip){
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    currentFilter = chip.dataset.filter;
+    updateFilter();
+    return;
+  }
+
+  const dayReset = e.target.closest('[data-reset-day]');
+  if(dayReset){
+    const day = dayReset.dataset.resetDay;
+    cards
+      .filter(card => card.dataset.day === day)
+      .forEach(card => completed.delete(card.dataset.cardId));
+    saveCompleted();
+    applyState();
+    return;
+  }
+});
+
+document.getElementById('toggleCompleted')?.addEventListener('click', () => {
   body.classList.toggle('hide-completed');
-  document.getElementById('toggleCompleted').textContent=body.classList.contains('hide-completed')?'완료 일정 보기':'완료 일정 숨기기';
+  document.getElementById('toggleCompleted').textContent =
+    body.classList.contains('hide-completed') ? '완료 일정 보기' : '완료 일정 숨기기';
   updateFilter();
 });
-document.getElementById('resetAll').addEventListener('click',()=>{
-  if(confirm('전체 완료 상태를 초기화할까요?')){completed.clear();saveCompleted();applyState();}
+
+document.getElementById('resetAll')?.addEventListener('click', () => {
+  if(confirm('전체 완료 상태를 초기화할까요?')){
+    completed.clear();
+    saveCompleted();
+    applyState();
+  }
 });
-document.getElementById('resetExpenses').addEventListener('click',()=>{
+
+document.getElementById('resetExpenses')?.addEventListener('click', () => {
   if(confirm('실제 지출 입력값을 모두 초기화할까요?')){
-    expenses={};
+    [EXPENSE_KEY, ...LEGACY_EXPENSE_KEYS].forEach(key => localStorage.removeItem(key));
+
+    document.querySelectorAll('[data-expense-input], .expense-input').forEach(input => {
+      input.value = '';
+    });
+
+    document.querySelectorAll('[data-payment-select], .payment-select').forEach(select => {
+      select.value = select.dataset.defaultPayment || 'cash';
+    });
+
     saveExpenses();
-    document.querySelectorAll('[data-expense-input]').forEach(input=>input.value='');
-    document.querySelectorAll('[data-payment-select]').forEach(select=>select.value=select.dataset.defaultPayment||'cash');
     updateExpenseSummary();
   }
 });
+
 loadExpenses();
 applyState();
 updateExpenseSummary();
