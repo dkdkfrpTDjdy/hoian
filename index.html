@@ -5,6 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>호이안-다낭 일정표</title>
+<link href="manifest.webmanifest" rel="manifest"/>
 <style>
 :root{
   --bg:#f6f4ee;
@@ -586,12 +587,12 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </nav>
 <div class="tool-row"><button class="control-btn" id="toggleCompleted">완료 일정 보기</button><button class="control-btn warn" id="resetAll">전체 완료 초기화</button></div>
 <div class="expense-panel" id="expensePanel">
-<button class="expense-head expense-toggle" id="expenseToggle" type="button" aria-expanded="true" aria-controls="expenseBody">
+<button aria-controls="expenseBody" aria-expanded="true" class="expense-head expense-toggle" id="expenseToggle" type="button">
 <span class="expense-head-text">
 <strong>실제 지출 계산기</strong>
-<span>입력값은 이 기기 브라우저에 저장 · 현금 예산 10,000,000동</span>
+<span>현금 예산 10,000,000동</span>
 </span>
-<span class="expense-chevron" aria-hidden="true">⌄</span>
+<span aria-hidden="true" class="expense-chevron">⌄</span>
 </button>
 <div class="expense-body" id="expenseBody">
 <div class="expense-summary-grid">
@@ -604,13 +605,12 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div class="expense-actions"><button class="expense-reset" id="resetExpenses" type="button">지출 입력 초기화</button></div>
 </div>
 </div>
-
 </div>
 </header>
 <main id="content">
 <section class="day-section" data-day="0530">
 <div class="day-head">
-<div><p class="eyebrow">5/30 토</p><h2>도착일 · 수영 · 야시장</h2><p>도착 후 리조트에서 쉬다가 17시쯤 안토이 호이안으로 이동</p></div>
+<div><p class="eyebrow">5/30 토</p><h2>도착일 · 수영 · 야시장</h2><p>도착 후 점심·주전부리만 챙기고 17:50까지 La Siesta 수영·낮잠·리조트 구경</p></div>
 <button class="day-reset" data-reset-day="0530">이 날짜 완료 해제</button>
 </div>
 <div class="card-stack">
@@ -631,11 +631,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <span class="label">가는 곳</span>
 <div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Da+Nang+International+Airport" rel="noopener" target="_blank">📍 Da Nang International Airport</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">📍 La Siesta Hoi An Resort &amp; Spa</a></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-00" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-00" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0530-00">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -685,11 +684,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div class="alt-note">국수보다 밥이 당길 때</div>
 </a></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-01" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-01" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0530-01">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -739,11 +737,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div class="alt-note">피곤하면 카페 생략</div>
 </div></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-02" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-02" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0530-02">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -788,11 +785,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div class="alt-note">유명해서 줄 있으면 포기</div>
 </a>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-snack-01" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-snack-01" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0530-snack-01">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -808,16 +804,16 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </div></article>
 <article class="schedule-card" data-card-id="0530-03" data-day="0530" data-type="휴식">
 <div class="card-top">
-<div class="time-pill">14:15-16:50</div>
+<div class="time-pill">14:00-17:50</div>
 <div class="type-pill">휴식</div>
 </div>
-<h3>휴식</h3>
+<h3>La Siesta 수영·낮잠·리조트 구경</h3>
 <div class="route-box"><span class="label">동선</span><strong>La Siesta 내부</strong></div>
 <div class="detail-grid">
 <div><span class="label">이동</span><p>이동 없음 / 0 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>수영, 낮잠</p></div>
+<div><span class="label">메뉴/내용</span><p>수영, 낮잠, 리조트 내부 산책, 사진, 객실 정리. 저녁을 늦게 먹을 예정이라 중간 주전부리 가능</p></div>
 <div><span class="label">예상 비용</span><p>숙박 포함</p></div>
-<div><span class="label">운영 메모</span><p>리조트에서 쉬다가 17시쯤 저녁 식당으로 바로 이동</p></div>
+<div><span class="label">운영 메모</span><p>17:50까지 수영·낮잠·리조트 구경. 이후 18:30까지 샤워하고 저녁 이동 준비</p></div>
 </div>
 <div class="section-box">
 <span class="label">가는 곳</span>
@@ -838,11 +834,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div class="alt-note">배달 가능하면 라시에스타 수령</div>
 </a></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-03" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-03" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0530-03">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -858,26 +853,25 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </article>
 <article class="schedule-card" data-card-id="0530-06" data-day="0530" data-type="이동">
 <div class="card-top">
-<div class="time-pill">17:00-17:20</div>
+<div class="time-pill">18:30-18:50</div>
 <div class="type-pill">이동</div>
 </div>
 <h3>리조트 → 안토이 호이안 이동</h3>
 <div class="route-box"><span class="label">동선</span><strong>La Siesta → 안토이 호이안</strong></div>
 <div class="detail-grid">
 <div><span class="label">이동</span><p>Grab 10-20분 / 약 60,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>소원배 없이 리조트 휴식 후 저녁 식당으로 바로 이동</p></div>
+<div><span class="label">메뉴/내용</span><p>17:50까지 리조트에서 쉬고, 18:30까지 샤워 후 저녁 식당으로 이동</p></div>
 <div><span class="label">예상 비용</span><p>이동비 약 60,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>17:20 전후 도착 목표. 배고프면 도착하자마자 바로 주문하고, 야시장은 식후 짧게.</p></div>
+<div><span class="label">운영 메모</span><p>18:50 전후 도착 목표. 점심 후 주전부리로 버티고 저녁은 조금 늦게 먹는 흐름</p></div>
 </div>
 <div class="section-box">
 <span class="label">가는 곳</span>
 <div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=An+Thoi+Hoi+An" rel="noopener" target="_blank">📍 안토이 호이안</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">📍 La Siesta Hoi An Resort &amp; Spa</a></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-06" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-06" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0530-06">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -893,7 +887,7 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </article>
 <article class="schedule-card" data-card-id="0530-07" data-day="0530" data-type="식사">
 <div class="card-top">
-<div class="time-pill">17:20-18:45</div>
+<div class="time-pill">18:50-20:10</div>
 <div class="type-pill">저녁 식사</div>
 </div>
 <h3>저녁: 안토이 호이안</h3>
@@ -902,7 +896,7 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div><span class="label">이동</span><p>이동 없음</p></div>
 <div><span class="label">메뉴/내용</span><p>베트남식 저녁, 모닝글로리, 새우/고기류, 쌀국수·밥류 중 컨디션에 맞게 주문</p></div>
 <div><span class="label">예상 비용</span><p>2인 500,000-800,000 VND 예상</p></div>
-<div><span class="label">운영 메모</span><p>소원배 일정 삭제. 17시쯤 리조트에서 나와 이른 저녁을 먹는 흐름.</p></div>
+<div><span class="label">운영 메모</span><p>소원배 일정 삭제. 리조트 시간을 길게 쓰고 18:50 전후 늦은 저녁으로 이동.</p></div>
 </div>
 <div class="section-box">
 <span class="label">가는 곳</span>
@@ -927,11 +921,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div class="alt-note">베트남식 말고 매운 커리 당길 때</div>
 </a></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-07" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-07" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0530-07">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -947,13 +940,13 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </article>
 <article class="schedule-card" data-card-id="0530-08" data-day="0530" data-type="야시장">
 <div class="card-top">
-<div class="time-pill">18:45-20:00</div>
+<div class="time-pill">20:10-21:10</div>
 <div class="type-pill">야시장</div>
 </div>
 <h3>호이안 야시장 후 복귀</h3>
 <div class="route-box"><span class="label">동선</span><strong>안토이 호이안 → Hoi An Night Market → La Siesta</strong></div>
 <div class="detail-grid">
-<div><span class="label">이동</span><p>야시장 도보 5-10분 / 복귀 Grab 10-15분 약 60,000 VND</p></div>
+<div><span class="label">이동</span><p>야시장 도보 5-10분 / 복귀 Grab 카드 10-15분 예상</p></div>
 <div><span class="label">메뉴/내용</span><p>반쎄오, 꼬치, 코코넛 아이스크림, 망고 디저트 등</p></div>
 <div><span class="label">예상 비용</span><p>간식·소품 200,000-400,000 VND</p></div>
 <div><span class="label">운영 메모</span><p>가격표 없는 노점, 위생 불안한 음식은 피하기</p></div>
@@ -976,11 +969,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div class="alt-menu">수영 후 회복</div>
 </a></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-08" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0530" data-expense-input="0530-08" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0530-08">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -997,23 +989,22 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </section>
 <section class="day-section" data-day="0531">
 <div class="day-head">
-<div><p class="eyebrow">5/31 일</p><h2>새벽시장 · 알라만다 마사지 · La Table</h2><p>05:30 새벽시장 과일 쇼핑 후 조식, 오전 알라만다 마사지와 스파 점심, 오후는 리조트 휴식/올드타운/자전거 중 컨디션 선택.</p></div>
+<div><p class="eyebrow">5/31 일</p><h2>아침시장 · 알라만다 마사지 · Little Pie · La Table · 바</h2><p>07:30쯤 일어나 씻지 않고 바로 시장에서 과일을 사고, 복귀 후 바로 조식. 이후 알라만다 마사지와 Little Pie Garden Trà Quế 카페, La Table 저녁.</p></div>
 <button class="day-reset" data-reset-day="0531">이 날짜 완료 해제</button>
 </div>
 <div class="card-stack">
-
 <article class="schedule-card" data-card-id="0531-dawn-market" data-day="0531" data-type="새벽시장">
 <div class="card-top">
-<div class="time-pill">05:30-07:10</div>
+<div class="time-pill">07:30-08:25</div>
 <div class="type-pill">새벽시장</div>
 </div>
-<h3>호이안 새벽시장 과일 사기</h3>
+<h3>호이안 아침시장 과일 사기 · 씻지 않고 바로</h3>
 <div class="route-box"><span class="label">동선</span><strong>La Siesta → Hoi An Market / 새벽시장 → La Siesta</strong></div>
 <div class="detail-grid">
 <div><span class="label">이동</span><p>Grab 카드 또는 호텔 호출 차량 / 편도 10-15분 예상 / 현금 계산 제외</p></div>
-<div><span class="label">메뉴/내용</span><p>망고, 망고스틴, 용과, 람부탄, 바나나 등 아침에 먹을 과일 위주로 소량 구매</p></div>
-<div><span class="label">예상 비용</span><p>과일 2인 200,000-500,000 VND 예상 / 현금 소액</p></div>
-<div><span class="label">운영 메모</span><p>호텔 조식 전이라 많이 사지 말기. 가격 먼저 확인하고, 손질 가능 여부와 숙소 냉장 보관을 고려</p></div>
+<div><span class="label">메뉴/내용</span><p>07:30쯤 일어나 씻지 않고 바로 출발. 망고, 망고스틴, 용과, 람부탄, 바나나 등 조식 전후로 먹을 과일만 소량 구매</p></div>
+<div><span class="label">예상 비용</span><p>과일 2인 150,000-350,000 VND 예상 / 현금 소액</p></div>
+<div><span class="label">운영 메모</span><p>08:25 복귀 목표. 안 씻고 짧게 다녀온 뒤 바로 조식 먹기. 많이 사지 말고 가격 먼저 확인</p></div>
 </div>
 <div class="section-box">
 <span class="label">가는 곳</span>
@@ -1039,11 +1030,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </div>
 </div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-dawn-market" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-dawn-market" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0531-dawn-market">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1059,16 +1049,16 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </article>
 <article class="schedule-card" data-card-id="0531-00" data-day="0531" data-type="식사">
 <div class="card-top">
-<div class="time-pill">07:10-09:20</div>
+<div class="time-pill">08:25-09:20</div>
 <div class="type-pill">조식·휴식</div>
 </div>
-<h3>새벽시장 복귀 후 조식·짧은 휴식</h3>
-<div class="route-box"><span class="label">동선</span><strong>Hoi An Market → La Siesta 조식당/객실</strong></div>
+<h3>시장 복귀 후 바로 조식·마사지 준비</h3>
+<div class="route-box"><span class="label">동선</span><strong>Hoi An Market → La Siesta 객실/조식당</strong></div>
 <div class="detail-grid">
 <div><span class="label">이동</span><p>Grab 카드 또는 스파/호텔 차량 확인 / 현금 계산 제외</p></div>
-<div><span class="label">메뉴/내용</span><p>과일 정리 후 조식. 마사지 전이라 과식하지 않기</p></div>
+<div><span class="label">메뉴/내용</span><p>과일 정리 후 바로 조식. 마사지 전이라 과식하지 않고 커피·빵·과일 위주로 가볍게</p></div>
 <div><span class="label">예상 비용</span><p>숙박 포함 / 새벽시장 과일은 별도 카드에 입력</p></div>
-<div><span class="label">운영 메모</span><p>08:30 전후부터 객실에서 쉬고, 09:20부터 마사지 픽업 준비</p></div>
+<div><span class="label">운영 메모</span><p>조식 후 바로 객실에서 양치·옷 정리. 09:20부터 마사지 픽업 준비</p></div>
 </div>
 <div class="section-box">
 <span class="label">가는 곳</span>
@@ -1083,11 +1073,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div class="alt-note">마사지 전 속 편하게</div>
 </div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-00" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-00" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0531-00">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1114,11 +1103,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div><span class="label">예상 비용</span><p>0 VND</p></div>
 <div><span class="label">운영 메모</span><p>스파에 La Siesta 픽업 장소·차량 정보를 전날 확인</p></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-01" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-01" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0531-01">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1144,11 +1132,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div><span class="label">메뉴/내용</span><p>90분 마사지 + 전후 준비 시간 포함. 강도는 중간 이하 추천</p></div>
 <div><span class="label">예상 비용</span><p>2,448,000동</p></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-03" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-03" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0531-03">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1173,11 +1160,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div><span class="label">이동</span><p>이동 없음 또는 스파 안내 동선</p></div>
 <div><span class="label">메뉴/내용</span><p>현지식</p></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-04" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-04" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0531-04">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1191,63 +1177,152 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0531-04" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0531-05" data-day="0531" data-type="휴식">
+<article class="schedule-card" data-card-id="0531-05" data-day="0531" data-type="이동">
 <div class="card-top">
-<div class="time-pill">13:00-17:40</div>
-<div class="type-pill">오후 선택</div>
+<div class="time-pill">13:00-13:20</div>
+<div class="type-pill">이동</div>
 </div>
-<h3>리조트 복귀 후 수영·낮잠 또는 올드타운</h3>
-<div class="route-box"><span class="label">동선</span><strong>알라만다 마사지 → La Siesta / 또는 Old Town 짧게</strong></div>
+<h3>알라만다 → Little Pie Garden 바로 이동</h3>
+<div class="route-box"><span class="label">동선</span><strong>알라만다 마사지 → Little Pie Garden Trà Quế</strong></div>
 <div class="detail-grid">
-<div><span class="label">이동</span><p>스파 드랍 요청 또는 Grab 10-20분 / 0-60,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>기본안은 리조트 복귀 후 수영·낮잠. 컨디션 좋으면 올드타운 커피나 짧은 자전거</p></div>
-<div><span class="label">예상 비용</span><p>리조트 휴식 0 VND / 카페 2인 120,000-220,000 VND / 자전거 0-150,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>18:15 전에는 La Table 이동 준비</p></div>
+<div><span class="label">이동</span><p>스파 드랍을 Little Pie Garden으로 요청 / 불가하면 Grab 카드 10-20분. 오토바이는 제외</p></div>
+<div><span class="label">메뉴/내용</span><p>숙소를 먼저 들르지 않고 마사지·스파 점심 후 카페로 바로 이동</p></div>
+<div><span class="label">예상 비용</span><p>차량 이동 0-80,000 VND 예상 / Grab 카드면 현금 계산 제외</p></div>
+<div><span class="label">운영 메모</span><p>마사지 후 몸이 풀린 상태라 자전거보다 차량 이동 우선. 큰 짐은 스파나 차량에 두지 말고 귀중품만 휴대</p></div>
 </div>
 <div class="section-box">
 <span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">📍 La Siesta</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Hoi+An+Ancient+Town" rel="noopener" target="_blank">📍 Hoi An Ancient Town</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Phin+Coffee+Workshop+Hoi+An" rel="noopener" target="_blank">📍 Phin Coffee Workshop</a></div>
+<div class="map-row">
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Alamanda+Massage+Hoi+An" rel="noopener" target="_blank">📍 알라만다 마사지</a>
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Little+Pie+Garden+Tra+Que+Hoi+An" rel="noopener" target="_blank">📍 Little Pie Garden Trà Quế</a>
+</div>
 </div>
 <div class="section-box">
-<span class="label">선택지 · 컨디션별</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">
-<div class="alt-title"><span>A안: 리조트 복귀</span><span class="arrow">지도</span></div>
-<div class="alt-meta">휴식 1순위</div>
-<div class="alt-menu">수영, 낮잠, 샤워, 저녁 준비</div>
-<div class="alt-note">가장 안정적인 기본안</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Reaching+Out+Tea+House+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>B안: 올드타운 커피</span><span class="arrow">지도</span></div>
-<div class="alt-meta">가벼운 외출</div>
-<div class="alt-menu">티세트, 베트남 커피, 사진 조금</div>
-<div class="alt-note">더우면 카페만 찍고 복귀</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Hoi+An+Ancient+Town" rel="noopener" target="_blank">
-<div class="alt-title"><span>C안: 올드타운 자전거</span><span class="arrow">지도</span></div>
-<div class="alt-meta">짧은 체험</div>
-<div class="alt-menu">올드타운 주변 30-45분만 천천히</div>
-<div class="alt-note">차량 많은 골목과 한낮 더위는 피하기</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Little+Pie+Garden+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>D안: Tra Que 쪽 자전거</span><span class="arrow">지도</span></div>
-<div class="alt-meta">논밭·정원 카페</div>
-<div class="alt-menu">Little Pie Garden, Tra Que 짧은 왕복</div>
-<div class="alt-note">체력 남을 때만</div>
-</a></div>
+<span class="label">이동 메모</span>
+<div class="alt-grid">
+<div class="alt-card">
+<div class="alt-title"><span>기본안: 스파 드랍</span></div>
+<div class="alt-meta">가장 편함</div>
+<div class="alt-menu">알라만다에 Little Pie Garden 드랍 가능 여부 확인</div>
+<div class="alt-note">가능하면 이 방식 우선</div>
 </div>
-
+<div class="alt-card">
+<div class="alt-title"><span>대체안: Grab 카드</span></div>
+<div class="alt-meta">확실한 이동</div>
+<div class="alt-menu">알라만다 → Little Pie Garden</div>
+<div class="alt-note">현금 계산에서 제외 가능</div>
+</div>
+</div>
+</div>
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-05" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0531-05">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-05" enterkeyhint="done" inputmode="text" placeholder="예: 8만동 / 80000 / 80k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0531-05">
 <option value="cash">현금</option>
 <option value="card">카드</option>
 <option value="excluded">기결제/제외</option>
 </select>
 </div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+<p class="expense-mini">알라만다 드랍 무료면 0원 또는 기결제/제외. Grab 카드면 결제 방식을 카드로 두기.</p>
 </div>
 <div class="card-actions">
 <button class="complete-btn" data-complete="0531-05">완료하고 일정 숨기기</button>
 <button class="undo-btn" data-undo="0531-05" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0531-little-pie" data-day="0531" data-type="필수 방문">
+<div class="card-top">
+<div class="time-pill">13:20-15:20</div>
+<div class="type-pill">필수 방문</div>
+</div>
+<h3>Little Pie Garden Trà Quế 무조건 가기</h3>
+<div class="route-box"><span class="label">동선</span><strong>Little Pie Garden Trà Quế 내부 / Tra Que 짧은 산책</strong></div>
+<div class="detail-grid">
+<div><span class="label">이동</span><p>카페 도착 후 내부 휴식. 주변 산책은 10-20분만, 더우면 카페 안에서 쉬기</p></div>
+<div><span class="label">메뉴/내용</span><p>Tra Que 정원 분위기 카페. 커피, 주스, 디저트, 사진, 짧은 산책</p></div>
+<div><span class="label">예상 비용</span><p>카페 2인 200,000-400,000 VND 예상</p></div>
+<div><span class="label">운영 메모</span><p>이 일정은 후보가 아니라 확정. 마사지 후 바로 카페를 먼저 간 뒤 15:20 전후 숙소 복귀</p></div>
+</div>
+<div class="section-box">
+<span class="label">가는 곳</span>
+<div class="map-row">
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Little+Pie+Garden+Tra+Que+Hoi+An" rel="noopener" target="_blank">📍 Little Pie Garden Trà Quế</a>
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Tra+Que+Vegetable+Village+Hoi+An" rel="noopener" target="_blank">📍 Tra Que Vegetable Village</a>
+</div>
+</div>
+<div class="section-box">
+<span class="label">운영 메모</span>
+<div class="alt-grid">
+<a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Little+Pie+Garden+Tra+Que+Hoi+An" rel="noopener" target="_blank">
+<div class="alt-title"><span>필수: Little Pie Garden</span><span class="arrow">지도</span></div>
+<div class="alt-meta">정원 카페</div>
+<div class="alt-menu">커피, 주스, 디저트, 사진</div>
+<div class="alt-note">이 장소는 일정에서 제외하지 않기</div>
+</a>
+<div class="alt-card">
+<div class="alt-title"><span>더우면 내부 휴식</span></div>
+<div class="alt-meta">체력 우선</div>
+<div class="alt-menu">카페에서 쉬고 사진만 짧게</div>
+<div class="alt-note">마사지 받은 날이라 무리하지 않기</div>
+</div>
+<div class="alt-card">
+<div class="alt-title"><span>산책은 짧게</span></div>
+<div class="alt-meta">Tra Que 분위기</div>
+<div class="alt-menu">정원 주변 10-20분</div>
+<div class="alt-note">한낮 더위 심하면 생략</div>
+</div>
+</div>
+</div>
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-little-pie" enterkeyhint="done" inputmode="text" placeholder="예: 25만동 / 250000 / 250k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0531-little-pie">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">카페 비용을 여기에 입력. 카드 결제했다면 결제 방식을 카드로 변경.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0531-little-pie">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0531-little-pie" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0531-05b" data-day="0531" data-type="휴식">
+<div class="card-top">
+<div class="time-pill">15:20-18:15</div>
+<div class="type-pill">숙소 복귀</div>
+</div>
+<h3>Little Pie 후 숙소 복귀 · 샤워 · La Table 준비</h3>
+<div class="route-box"><span class="label">동선</span><strong>Little Pie Garden Trà Quế → La Siesta → La Table 이동 준비</strong></div>
+<div class="detail-grid">
+<div><span class="label">이동</span><p>Grab 카드 10-20분 / 스파 드랍이 아니라 카페 후 숙소로 직접 복귀</p></div>
+<div><span class="label">메뉴/내용</span><p>숙소 복귀 후 수영 또는 낮잠 짧게, 샤워, 옷 갈아입기, 휴대폰 충전, La Table 예약 시간 재확인</p></div>
+<div><span class="label">예상 비용</span><p>이동비 0-80,000 VND / Grab 카드면 현금 계산 제외</p></div>
+<div><span class="label">운영 메모</span><p>18:15에는 La Table 이동 시작. 늦어도 18:35-18:40 도착 목표</p></div>
+</div>
+<div class="section-box">
+<span class="label">가는 곳</span>
+<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">📍 La Siesta</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Table+Hoi+An" rel="noopener" target="_blank">📍 La Table Hoi An</a></div>
+</div>
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-05b" enterkeyhint="done" inputmode="text" placeholder="예: 8만동 / 80000 / 80k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0531-05b">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">Little Pie에서 숙소로 돌아오는 Grab 비용을 넣고 싶으면 입력. 카드 결제면 카드로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0531-05b">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0531-05b" hidden="">완료 해제</button>
 </div>
 </article>
 <article class="schedule-card" data-card-id="0531-06" data-day="0531" data-type="이동">
@@ -1267,11 +1342,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <span class="label">가는 곳</span>
 <div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Table+Hoi+An" rel="noopener" target="_blank">📍 La Table Hoi An</a></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-06" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-06" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0531-06">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1318,11 +1392,10 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <div class="alt-menu">서양식, 해산물, 칵테일</div>
 </a></div>
 </div>
-
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-07" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-07" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0531-07">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1336,46 +1409,62 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0531-07" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0531-08" data-day="0531" data-type="야시장">
+<article class="schedule-card" data-card-id="0531-08" data-day="0531" data-type="바">
 <div class="card-top">
-<div class="time-pill">21:00-21:55</div>
-<div class="type-pill">야시장</div>
+<div class="time-pill">21:00-22:10</div>
+<div class="type-pill">바 · 라운지</div>
 </div>
-<h3>저녁 후 호이안 야시장 또 구경</h3>
-<div class="route-box"><span class="label">동선</span><strong>La Table → Hoi An Night Market → La Siesta</strong></div>
+<h3>La Table 후 분위기 좋은 바 또는 La Siesta 라운지 바</h3>
+<div class="route-box"><span class="label">동선</span><strong>La Table → 호이안 올드타운 바 / 또는 La Siesta 내부 라운지 바</strong></div>
 <div class="detail-grid">
-<div><span class="label">이동</span><p>도보 + 복귀 Grab 10-15분 / 약 60,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>식후 산책, 코코넛 아이스크림·망고 디저트·소품 구경. 이미 배부르면 사진만</p></div>
-<div><span class="label">예상 비용</span><p>간식·소품 100,000-300,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>가격표 없는 노점, 과한 호객, 위생 불안한 음식은 제외</p></div>
+<div><span class="label">이동</span><p>올드타운 바는 도보·Grab 5-15분 + 복귀 Grab 카드 / 피곤하면 La Siesta로 바로 복귀 후 내부 바</p></div>
+<div><span class="label">메뉴/내용</span><p>칵테일, 와인, 맥주, 목테일 중 한 잔. 코스요리 후라 안주는 최소화</p></div>
+<div><span class="label">예상 비용</span><p>2인 250,000-700,000 VND 예상 / 숙소 내부 바는 객실 차지 또는 카드 가능 여부 확인</p></div>
+<div><span class="label">운영 메모</span><p>다음날 체크아웃이 있으니 22:30 전 복귀 목표. 야시장 재방문은 컨디션 되면 지나가는 정도만</p></div>
 </div>
 <div class="section-box">
 <span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Hoi+An+Night+Market" rel="noopener" target="_blank">📍 Hoi An Night Market</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">📍 La Siesta</a></div>
+<div class="map-row">
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Mezcal+Cocteleria+Hoi+An" rel="noopener" target="_blank">📍 Mezcal Cocteleria</a>
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Market+Bar+Hoi+An" rel="noopener" target="_blank">📍 Market Bar</a>
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">📍 La Siesta Lounge Bar</a>
+</div>
 </div>
 <div class="section-box">
-<span class="label">대체 후보 · 밤 컨디션별</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Market+Bar+Hoi+An" rel="noopener" target="_blank">
+<span class="label">선택지 · 분위기별</span>
+<div class="alt-grid">
+<a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Mezcal+Cocteleria+Hoi+An" rel="noopener" target="_blank">
+<div class="alt-title"><span>Mezcal Cocteleria</span><span class="arrow">지도</span></div>
+<div class="alt-meta">칵테일바</div>
+<div class="alt-menu">아가베 스피릿, 시그니처 칵테일, 어두운 조명</div>
+<div class="alt-note">분위기 최우선이면 1순위</div>
+</a>
+<a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Market+Bar+Hoi+An" rel="noopener" target="_blank">
 <div class="alt-title"><span>Market Bar</span><span class="arrow">지도</span></div>
-<div class="alt-meta">바</div>
-<div class="alt-menu">진토닉, 칵테일</div>
-<div class="alt-note">한 잔만 하고 복귀</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Hoi+An+Ancient+Town" rel="noopener" target="_blank">
-<div class="alt-title"><span>올드타운 산책</span><span class="arrow">지도</span></div>
-<div class="alt-meta">산책</div>
-<div class="alt-menu">사진, 강변 산책</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">
-<div class="alt-title"><span>바로 숙소</span><span class="arrow">지도</span></div>
-<div class="alt-meta">휴식</div>
+<div class="alt-meta">올드타운 바</div>
+<div class="alt-menu">칵테일, 맥주, 가벼운 한 잔</div>
+<div class="alt-note">La Table 후 올드타운 분위기 이어가기</div>
+</a>
+<a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">
+<div class="alt-title"><span>La Siesta 내부 라운지 바</span><span class="arrow">지도</span></div>
+<div class="alt-meta">숙소 내부</div>
+<div class="alt-menu">와인, 칵테일, 목테일</div>
+<div class="alt-note">피곤하거나 비 오면 가장 안전</div>
+</a>
+<div class="alt-card">
+<div class="alt-title"><span>바로 숙소 복귀</span></div>
+<div class="alt-meta">컨디션 우선</div>
 <div class="alt-menu">샤워, 수면, 다음날 체크아웃 준비</div>
-</a></div>
+<div class="alt-note">코스요리 후 피곤하면 무리하지 않기</div>
+</div>
+</div>
 </div>
 
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-08" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0531-08">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0531" data-expense-input="0531-08" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0531-08">
 <option value="cash">현금</option>
 <option value="card">카드</option>
 <option value="excluded">기결제/제외</option>
@@ -1391,40 +1480,23 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </section>
 <section class="day-section" data-day="0601">
 <div class="day-head">
-<div><p class="eyebrow">6/1 월</p><h2>호이안 마지막 점심 · 다낭 이동</h2></div>
+<div><p class="eyebrow">6/1 월</p><h2>다낭 이동 · 딤섬 · 한시장 · 로컬 해산물 · Son Tra 야시장</h2><p>저녁은 완전 로컬 해산물, 식후에는 Son Tra Night Market으로 다낭 야시장까지 보는 날.</p></div>
 <button class="day-reset" data-reset-day="0601">이 날짜 완료 해제</button>
 </div>
 <div class="card-stack">
-<article class="schedule-card" data-card-id="0601-00" data-day="0601" data-type="휴식">
+<article class="schedule-card" data-card-id="0601-00" data-day="0601" data-type="식사">
 <div class="card-top">
-<div class="time-pill">08:00-10:30</div>
-<div class="type-pill">휴식</div>
+<div class="time-pill">08:30-10:00</div>
+<div class="type-pill">식사</div>
 </div>
-<h3>체크아웃 전 휴식</h3>
-<div class="route-box"><span class="label">동선</span><strong>La Siesta 내부</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>이동 없음 / 0 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>조식, 수영, 체크아웃 준비</p></div>
-<div><span class="label">예상 비용</span><p>숙박 포함</p></div>
-<div><span class="label">운영 메모</span><p>다낭으로 이동일</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">📍 La Siesta</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보</span>
-<div class="alt-grid"><div class="alt-card">
-<div class="alt-title"><span>객실 휴식</span></div>
-<div class="alt-meta">휴식</div>
-<div class="alt-menu">짐 정리·낮잠</div>
-</div></div>
-</div>
-
+<h3>La Siesta 조식</h3>
+<div class="route-box"><span class="label">동선</span><strong>객실 → La Siesta 조식당</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>리조트 내부 / 0 VND</p></div><div><span class="label">메뉴/내용</span><p>조식, 커피, 과일. 체크아웃 전이라 과식하지 말고 천천히 먹기</p></div><div><span class="label">예상 비용</span><p>숙박 포함</p></div><div><span class="label">운영 메모</span><p>10:00부터 체크아웃 준비가 시작되도록 식사는 10시 전에 마무리</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">📍 La Siesta Hoi An Resort &amp; Spa</a></div></div>
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-00" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-00" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0601-00">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1438,46 +1510,20 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0601-00" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0601-01" data-day="0601" data-type="식사">
-<div class="card-top">
-<div class="time-pill">11:20-12:10</div>
-<div class="type-pill">식사</div>
-</div>
-<h3>점심: Cao Lau Khong Gian Xanh</h3>
-<div class="route-box"><span class="label">동선</span><strong>La Siesta → Cao Lau Khong Gian Xanh</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 10-15분 / 약 60,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>까오러우, 구운돼지고기 국수, 화이트로즈, 허브티</p></div>
-<div><span class="label">예상 비용</span><p>2인 180,000-300,000 VND 예상</p></div>
-<div><span class="label">운영 메모</span><p>Bale Well은 세트메뉴(?)</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Cao+Lau+Khong+Gian+Xanh+Hoi+An" rel="noopener" target="_blank">📍 Cao Lau Khong Gian Xanh</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Com+Linh+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>Com Linh</span><span class="arrow">지도</span></div>
-<div class="alt-meta">베트남 가정식</div>
-<div class="alt-menu">마늘새우, 모닝글로리, 밥류</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Pho+Thin+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>Pho Thin</span><span class="arrow">지도</span></div>
-<div class="alt-meta">쌀국수</div>
-<div class="alt-menu">소고기 쌀국수</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Bale+Well+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>Bale Well</span><span class="arrow">지도</span></div>
-<div class="alt-meta">세트메뉴·로컬식</div>
-<div class="alt-menu">반쎄오, 꼬치, 라이스페이퍼 세트</div>
-<div class="alt-note">붐비는 편</div>
-</a></div>
-</div>
 
+<article class="schedule-card" data-card-id="0601-01" data-day="0601" data-type="체크아웃">
+<div class="card-top">
+<div class="time-pill">10:00-12:00</div>
+<div class="type-pill">체크아웃</div>
+</div>
+<h3>체크아웃 준비 · 짐 정리</h3>
+<div class="route-box"><span class="label">동선</span><strong>La Siesta 객실 → 로비 체크아웃</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>리조트 내부 / 0 VND</p></div><div><span class="label">메뉴/내용</span><p>샤워, 짐 정리, 체크아웃, 로비 대기</p></div><div><span class="label">예상 비용</span><p>숙박/예약분 제외</p></div><div><span class="label">운영 메모</span><p>누락물 확인: 여권, 충전기, 세면도구, 수영복, 냉장고 과일</p></div></div>
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-01" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0601-01">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-01" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0601-01">
 <option value="cash">현금</option>
 <option value="card">카드</option>
 <option value="excluded">기결제/제외</option>
@@ -1490,45 +1536,21 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0601-01" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0601-02" data-day="0601" data-type="카페">
-<div class="card-top">
-<div class="time-pill">12:10-13:20</div>
-<div class="type-pill">카페</div>
-</div>
-<h3>커피 후 호텔 복귀</h3>
-<div class="route-box"><span class="label">동선</span><strong>Cao Lau Khong Gian Xanh → Phin Coffee Workshop → La Siesta</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>도보·Grab 10-20분 / 약 60,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>에그커피, 아이스커피</p></div>
-<div><span class="label">예상 비용</span><p>2인 120,000-180,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>길게 머물지 않기</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Phin+Coffee+Workshop+Hoi+An" rel="noopener" target="_blank">📍 Phin Coffee Workshop</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=La+Siesta+Hoi+An+Resort+%26+Spa" rel="noopener" target="_blank">📍 La Siesta</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Reaching+Out+Tea+House+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>Reaching Out Tea House</span><span class="arrow">지도</span></div>
-<div class="alt-meta">티하우스</div>
-<div class="alt-menu">티세트, 베트남 커피</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Nourish+Eatery+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>Nourish Eatery</span><span class="arrow">지도</span></div>
-<div class="alt-meta">브런치·스무디</div>
-<div class="alt-menu">스무디볼, 샐러드</div>
-</a><div class="alt-card">
-<div class="alt-title"><span>바로 호텔 복귀</span></div>
-<div class="alt-meta">운영</div>
-<div class="alt-menu">짐 픽업</div>
-</div></div>
-</div>
 
+<article class="schedule-card" data-card-id="0601-02" data-day="0601" data-type="이동">
+<div class="card-top">
+<div class="time-pill">12:00-13:10</div>
+<div class="type-pill">이동</div>
+</div>
+<h3>다낭 이동 · 호텔 짐 맡기기</h3>
+<div class="route-box"><span class="label">동선</span><strong>La Siesta → 104 Hồ Nghinh 다낭 호텔</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 약 50-70분 예상</p></div><div><span class="label">메뉴/내용</span><p>호텔 체크인 전이면 로비에 짐 맡기기</p></div><div><span class="label">예상 비용</span><p>Grab 카드 결제 기준 / 현금 계산 제외</p></div><div><span class="label">운영 메모</span><p>목적지 주소: 104 Hồ Nghinh, Sơn Trà, Đà Nẵng 550000, Vietnam</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=104+H%E1%BB%93+Nghinh%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng+550000%2C+Vietnam" rel="noopener" target="_blank">📍 다낭 호텔 104 Hồ Nghinh</a></div></div>
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-02" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0601-02">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-02" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0601-02">
 <option value="cash">현금</option>
 <option value="card">카드</option>
 <option value="excluded">기결제/제외</option>
@@ -1541,83 +1563,32 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0601-02" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0601-snack-01" data-day="0601" data-type="군것질">
-<div class="card-top">
-<div class="time-pill">13:20-13:40</div>
-<div class="type-pill">군것질</div>
-</div>
-<h3>다낭 이동 전 간식: 반미 또는 케이크 포장</h3>
-<div class="route-box"><span class="label">동선</span><strong>Phin Coffee Workshop → La Siesta / 이동 전 포장 간식 확인</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>도보·Grab 10-20분 / 호텔 복귀 동선에 맞춰 짧게</p></div>
-<div><span class="label">메뉴/내용</span><p>반미 1개 포장, 케이크·페이스트리 포장, 이동 중 먹을 음료. 다낭 체크인 전 허기 방지</p></div>
-<div><span class="label">예상 비용</span><p>2인 100,000-300,000 VND 예상</p></div>
-<div><span class="label">운영 메모</span><p>차 안에서 먹기 쉬운 건 반미, 숙소 도착 후 먹기 좋은 건 케이크/페이스트리</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Em%27s+Bakery+Hoi+An" rel="noopener" target="_blank">📍 Em's Bakery</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Madam+Khanh+The+Banh+Mi+Queen+Hoi+An" rel="noopener" target="_blank">📍 Madam Khanh</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Phin+Coffee+Workshop+Hoi+An" rel="noopener" target="_blank">📍 Phin Coffee Workshop</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 바로 먹는 간식/디저트</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Em%27s+Bakery+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>Em's Bakery</span><span class="arrow">지도</span></div>
-<div class="alt-meta">베이커리·케이크</div>
-<div class="alt-menu">케이크, 페이스트리, 빵, 커피</div>
-<div class="alt-note">다낭 호텔에서 먹을 디저트 포장</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Madam+Khanh+The+Banh+Mi+Queen+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>Madam Khanh</span><span class="arrow">지도</span></div>
-<div class="alt-meta">반미</div>
-<div class="alt-menu">mixed banh mi, BBQ banh mi</div>
-<div class="alt-note">이동 중 먹기 쉬움</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Hoi+An+Books+snack+shop+Hoi+An" rel="noopener" target="_blank">
-<div class="alt-title"><span>호이안 북스 과자가게</span><span class="arrow">지도</span></div>
-<div class="alt-meta">포장 간식</div>
-<div class="alt-menu">쿠키류, 과자류</div>
-<div class="alt-note">선물용은 별도 수량 확인</div>
-</a></div>
-</div>
 
+<article class="schedule-card" data-card-id="0601-03" data-day="0601" data-type="식사">
+<div class="card-top">
+<div class="time-pill">13:20-14:30</div>
+<div class="type-pill">식사</div>
+</div>
+<h3>점심: Quán ăn Dim Sum</h3>
+<div class="route-box"><span class="label">동선</span><strong>다낭 호텔 → Quán ăn Dim Sum</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 호텔에서 10-25분 예상</p></div><div><span class="label">메뉴/내용</span><p>딤섬, 만두, 볶음면/볶음밥류. 베트남 현지식 말고 중식 계열로 점심 전환</p></div><div><span class="label">예상 비용</span><p>2인 300,000-600,000 VND 예상</p></div><div><span class="label">운영 메모</span><p>한시장 전에 너무 무겁게 먹지 않기. 문 닫힘/웨이팅이면 근처 중식·카페 식사로 전환</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Qu%C3%A1n+%C4%83n+Dim+Sum+Da+Nang" rel="noopener" target="_blank">📍 Quán ăn Dim Sum</a></div></div>
+<div class="section-box"><span class="label">대체 후보 · 메모</span><div class="alt-grid"><div class="alt-card">
+<div class="alt-title"><span>중식/딤섬 백업</span></div>
+<div class="alt-meta">현지식 회피</div>
+<div class="alt-menu">만두, 딤섬, 볶음면</div>
+<div class="alt-note">Quán ăn Dim Sum이 애매하면 Maps에서 dim sum nearby 검색</div>
+</div><div class="alt-card">
+<div class="alt-title"><span>퓨전 한식 백업</span></div>
+<div class="alt-meta">퓨전/한식</div>
+<div class="alt-menu">덮밥, 면, 고기류</div>
+<div class="alt-note">베트남식이 질리면 한식 계열로 전환</div>
+</div></div></div>
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-snack-01" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0601-snack-01">
-<option value="cash">현금</option>
-<option value="card">카드</option>
-<option value="excluded">기결제/제외</option>
-</select>
-</div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
-</div>
-<div class="card-actions">
-<button class="complete-btn" data-complete="0601-snack-01">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0601-snack-01" hidden="">완료 해제</button>
-</div>
-</article>
-<article class="schedule-card" data-card-id="0601-03" data-day="0601" data-type="이동">
-<div class="card-top">
-<div class="time-pill">14:00-15:00</div>
-<div class="type-pill">이동</div>
-</div>
-<h3>다낭 이동 · 호텔 체크인</h3>
-<div class="route-box"><span class="label">동선</span><strong>La Siesta → Ponte Boutique Hotel Da Nang</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab/차량 45-60분 / 약 350,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>체크인, 방 컨디션 확인</p></div>
-<div><span class="label">예상 비용</span><p>호텔비 일정 별도</p></div>
-<div><span class="label">운영 메모</span><p>다음날 출국 전 샤워·휴식까지 고려</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Boutique+Hotel+Da+Nang" rel="noopener" target="_blank">📍 Ponte Boutique Hotel Da Nang</a></div>
-</div>
-
-<div class="expense-entry">
-<span class="label">실제 지출 입력</span>
-<div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-03" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0601-03">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-03" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0601-03">
 <option value="cash">현금</option>
 <option value="card">카드</option>
 <option value="excluded">기결제/제외</option>
@@ -1630,44 +1601,26 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0601-03" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0601-04" data-day="0601" data-type="카페">
-<div class="card-top">
-<div class="time-pill">16:00-16:45</div>
-<div class="type-pill">카페</div>
-</div>
-<h3>다낭 커피: O2o First Roast</h3>
-<div class="route-box"><span class="label">동선</span><strong>Ponte → O2o First Roast → Ponte</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 10-20분 / 약 80,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>스페셜티 커피</p></div>
-<div><span class="label">예상 비용</span><p>2인 160,000-250,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>저녁 전 가볍게</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=O2o+First+Roast+Da+Nang" rel="noopener" target="_blank">📍 O2o First Roast</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=XLIII+Coffee+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>XLIII Coffee</span><span class="arrow">지도</span></div>
-<div class="alt-meta">스페셜티 카페</div>
-<div class="alt-menu">필터커피, 아이스라떼</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Lighthouse+Coffee+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Lighthouse</span><span class="arrow">지도</span></div>
-<div class="alt-meta">카페</div>
-<div class="alt-menu">커피, 음료</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Bikini+Bottom+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Bikini Bottom</span><span class="arrow">지도</span></div>
-<div class="alt-meta">캐주얼 카페·브런치</div>
-<div class="alt-menu">버거, 음료, 브런치</div>
-</a></div>
-</div>
 
+<article class="schedule-card" data-card-id="0601-04" data-day="0601" data-type="쇼핑">
+<div class="card-top">
+<div class="time-pill">14:50-16:20</div>
+<div class="type-pill">쇼핑</div>
+</div>
+<h3>한시장 선물 쇼핑</h3>
+<div class="route-box"><span class="label">동선</span><strong>Quán ăn Dim Sum → Han Market</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 약 10-20분</p></div><div><span class="label">메뉴/내용</span><p>망고젤리, 코코넛커피, 베트남커피, 캐슈넛, 말린망고, 코코넛 크래커</p></div><div><span class="label">예상 비용</span><p>1,000,000-2,300,000 VND / 현금 중심</p></div><div><span class="label">운영 메모</span><p>마지막날 부담 줄이기 위해 6/1에 선물 1차 구매. 1층 식품 구역 위주, 3곳만 비교</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Han+Market+Da+Nang" rel="noopener" target="_blank">📍 Han Market</a></div></div>
+<div class="section-box"><span class="label">대체 후보 · 메모</span><div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Lotte+Mart+Da+Nang" rel="noopener" target="_blank">
+<div class="alt-title"><span>Lotte Mart / GO!</span><span class="arrow">지도</span></div>
+<div class="alt-meta">정찰제 백업</div>
+<div class="alt-menu">커피, 과자, 말린과일</div>
+<div class="alt-note">흥정 피곤하면 다음날 마트로 보완</div>
+</a></div></div>
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-04" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-04" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0601-04">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1681,47 +1634,31 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0601-04" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0601-05" data-day="0601" data-type="식사">
-<div class="card-top">
-<div class="time-pill">18:00-19:45</div>
-<div class="type-pill">식사</div>
-</div>
-<h3>해산물 저녁</h3>
-<div class="route-box"><span class="label">동선</span><strong>Ponte → My Khe/Son Tra 해안가 수조 해산물 식당</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 15-25분 / 약 100,000-150,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>수조/얼음 위 해산물 선택 → kg 가격 확인 → 조리법 지정</p></div>
-<div><span class="label">예상 비용</span><p>2인 800,000-1,500,000 VND 예상. 게·랍스터 선택 시 상승</p></div>
-<div><span class="label">운영 메모</span><p>새우 마늘버터, 조개 레몬그라스찜, 오징어 그릴, 게 타마린드, 모닝글로리 추천</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Be+Man+Seafood+Da+Nang" rel="noopener" target="_blank">📍 Be Man Seafood</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Hai+San+Pho+Da+Nang" rel="noopener" target="_blank">📍 Hai San Pho</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Nam+Danh+Seafood+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Nam Danh Seafood</span><span class="arrow">지도</span></div>
-<div class="alt-meta">로컬 해산물</div>
-<div class="alt-menu">새우, 오징어, 조개, 해산물 볶음밥</div>
-<div class="alt-note">로컬형</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Them+Hai+San+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Thèm Hải Sản</span><span class="arrow">지도</span></div>
-<div class="alt-meta">사진·메뉴형 해산물</div>
-<div class="alt-menu">crazy fish, black pepper shrimp, squid</div>
-<div class="alt-note">소발이가 해산물 좋아하니까 여기도 좋음</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Bep+Hen+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Bep Hen</span><span class="arrow">지도</span></div>
-<div class="alt-meta">베트남 가정식</div>
-<div class="alt-menu">마늘새우, 모닝글로리, 밥류</div>
-<div class="alt-note">해산물 수조가 부담스러울 때</div>
-</a></div>
-</div>
 
+<article class="schedule-card" data-card-id="0601-05" data-day="0601" data-type="디저트">
+<div class="card-top">
+<div class="time-pill">16:20-17:10</div>
+<div class="type-pill">디저트</div>
+</div>
+<h3>더우면 빙수·아이스크림 카페</h3>
+<div class="route-box"><span class="label">동선</span><strong>Han Market → 디저트 카페</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>도보 또는 Grab 카드 / 5-15분</p></div><div><span class="label">메뉴/내용</span><p>망고빙수, 과일빙수, 젤라또, 아이스커피</p></div><div><span class="label">예상 비용</span><p>2인 180,000-350,000 VND 예상</p></div><div><span class="label">운영 메모</span><p>쇼핑 후 더우면 필수 휴식. 덜 더우면 호텔 복귀해서 쉬기</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=mango+bingsu+ice+cream+near+Han+Market+Da+Nang" rel="noopener" target="_blank">📍 한시장 근처 빙수/아이스크림</a></div></div>
+<div class="section-box"><span class="label">대체 후보 · 메모</span><div class="alt-grid"><div class="alt-card">
+<div class="alt-title"><span>Kaldi &amp; More / 빙수 후보</span></div>
+<div class="alt-meta">디저트</div>
+<div class="alt-menu">망고빙수, 과일음료</div>
+<div class="alt-note">한시장 근처 시원한 곳 우선</div>
+</div><div class="alt-card">
+<div class="alt-title"><span>호텔 복귀</span></div>
+<div class="alt-meta">휴식</div>
+<div class="alt-menu">샤워, 짐 정리, 낮잠</div>
+<div class="alt-note">더위 심하면 카페 대신 호텔로</div>
+</div></div></div>
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-05" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-05" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0601-05">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1735,45 +1672,21 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0601-05" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0601-06" data-day="0601" data-type="야시장">
-<div class="card-top">
-<div class="time-pill">19:50-21:00</div>
-<div class="type-pill">야시장</div>
-</div>
-<h3>Son Tra Night Market</h3>
-<div class="route-box"><span class="label">동선</span><strong>해산물 식당 → Son Tra Night Market</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 10-20분 / 약 80,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>꼬치, 디저트, 야경. 배부르면 산책만</p></div>
-<div><span class="label">예상 비용</span><p>2인 300,000-500,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>식사 후 과식하지 말고 산책 위주</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Son+Tra+Night+Market+Da+Nang" rel="noopener" target="_blank">📍 Son Tra Night Market</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Dragon+Bridge+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Dragon Bridge</span><span class="arrow">지도</span></div>
-<div class="alt-meta">야경 산책</div>
-<div class="alt-menu">사진, 강변 산책</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=An+Thuong+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>An Thuong 산책</span><span class="arrow">지도</span></div>
-<div class="alt-meta">동네 산책·바</div>
-<div class="alt-menu">카페, 바, 간식</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Boutique+Hotel+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>호텔 복귀</span><span class="arrow">지도</span></div>
-<div class="alt-meta">휴식</div>
-<div class="alt-menu">과일 배달·샤워</div>
-</a></div>
-</div>
 
+<article class="schedule-card" data-card-id="0601-06" data-day="0601" data-type="휴식">
+<div class="card-top">
+<div class="time-pill">17:10-17:50</div>
+<div class="type-pill">휴식</div>
+</div>
+<h3>호텔 복귀 · 저녁 전 정비</h3>
+<div class="route-box"><span class="label">동선</span><strong>디저트 카페 → 104 Hồ Nghinh 호텔</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 10-20분</p></div><div><span class="label">메뉴/내용</span><p>체크인, 쇼핑품 정리, 손 씻기, 저녁 전 가벼운 재정비</p></div><div><span class="label">예상 비용</span><p>0 VND / 이동비 카드</p></div><div><span class="label">운영 메모</span><p>해산물 식당이 완전 로컬이면 물티슈·현금·휴대폰 배터리 챙기기</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=104+H%E1%BB%93+Nghinh%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng+550000%2C+Vietnam" rel="noopener" target="_blank">📍 다낭 호텔 104 Hồ Nghinh</a></div></div>
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-06" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0601-06">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-06" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0601-06">
 <option value="cash">현금</option>
 <option value="card">카드</option>
 <option value="excluded">기결제/제외</option>
@@ -1786,45 +1699,32 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0601-06" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0601-07" data-day="0601" data-type="이동">
-<div class="card-top">
-<div class="time-pill">21:00-21:30</div>
-<div class="type-pill">이동</div>
-</div>
-<h3>Ponte 복귀</h3>
-<div class="route-box"><span class="label">동선</span><strong>야시장 → Ponte</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 15-25분 / 약 100,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>휴식, 과일 또는 커리 배달 가능</p></div>
-<div><span class="label">예상 비용</span><p>과일 150,000-300,000 VND 선택</p></div>
-<div><span class="label">운영 메모</span><p>다음날 한시장·마사지·출국 준비</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Boutique+Hotel+Da+Nang" rel="noopener" target="_blank">📍 Ponte Boutique Hotel Da Nang</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=My+My+Fruit+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>My My Fruit</span><span class="arrow">지도</span></div>
-<div class="alt-meta">과일 배달</div>
-<div class="alt-menu">컷과일, 망고, 망고스틴</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=XuXi+Fruit+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>XuXi Fruit</span><span class="arrow">지도</span></div>
-<div class="alt-meta">과일 배달</div>
-<div class="alt-menu">과일박스, 주스</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Bhojan+Indian+Restaurant+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Bhojan Indian Restaurant</span><span class="arrow">지도</span></div>
-<div class="alt-meta">인도식 커리</div>
-<div class="alt-menu">커리, 밥, 난</div>
-</a></div>
-</div>
 
+<article class="schedule-card" data-card-id="0601-07" data-day="0601" data-type="식사">
+<div class="card-top">
+<div class="time-pill">18:10-19:50</div>
+<div class="type-pill">식사</div>
+</div>
+<h3>저녁: 완전 로컬 해산물 식당</h3>
+<div class="route-box"><span class="label">동선</span><strong>다낭 호텔 → 네이버 블로그 로컬 해산물 식당</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 10-30분 예상. 식당명·주소는 네이버 블로그에서 최종 확인</p></div><div><span class="label">메뉴/내용</span><p>수조/로컬 해산물, 새우, 조개, 오징어, 게, 모닝글로리. 가격 먼저 확인 후 주문</p></div><div><span class="label">예상 비용</span><p>2인 800,000-1,600,000 VND 예상 / 게·랍스터 선택 시 상승</p></div><div><span class="label">운영 메모</span><p>완전 로컬 느낌 우선. 위생 불안하면 익힌 메뉴 위주, kg 가격과 조리법을 주문 전에 확인</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://blog.naver.com/gptjs10047/223518409353" rel="noopener" target="_blank">📍 네이버 블로그 해산물 식당 확인</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=local+seafood+restaurant+Da+Nang" rel="noopener" target="_blank">📍 Da Nang local seafood</a></div></div>
+<div class="section-box"><span class="label">대체 후보 · 메모</span><div class="alt-grid"><div class="alt-card">
+<div class="alt-title"><span>주문 팁</span></div>
+<div class="alt-meta">로컬 해산물</div>
+<div class="alt-menu">새우 마늘버터, 조개찜, 오징어구이, 볶음밥</div>
+<div class="alt-note">가격표/저울/조리법 먼저 확인</div>
+</div><div class="alt-card">
+<div class="alt-title"><span>안전 백업</span></div>
+<div class="alt-meta">덜 로컬</div>
+<div class="alt-menu">Thèm Hải Sản 또는 MỘC Quán</div>
+<div class="alt-note">너무 빡센 로컬이면 백업으로 전환</div>
+</div></div></div>
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-07" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0601-07">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-07" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0601-07">
 <option value="cash">현금</option>
 <option value="card">카드</option>
 <option value="excluded">기결제/제외</option>
@@ -1836,52 +1736,98 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="complete-btn" data-complete="0601-07">완료하고 일정 숨기기</button>
 <button class="undo-btn" data-undo="0601-07" hidden="">완료 해제</button>
 </div>
-</article></div>
-</section>
-<section class="day-section" data-day="0602">
-<div class="day-head">
-<div><p class="eyebrow">6/2 화</p><h2>한시장 쇼핑 · Ponte 샤워 · 도보 저녁 · 출국 전 마사지</h2><p>쇼핑, 호텔 휴식, 마사지 후 공항</p></div>
-<button class="day-reset" data-reset-day="0602">이 날짜 완료 해제</button>
-</div>
-<div class="card-stack">
-<article class="schedule-card" data-card-id="0602-00" data-day="0602" data-type="식사">
+</article>
+
+<article class="schedule-card" data-card-id="0601-08" data-day="0601" data-type="야시장">
 <div class="card-top">
-<div class="time-pill">08:30-09:10</div>
-<div class="type-pill">식사</div>
+<div class="time-pill">20:00-21:10</div>
+<div class="type-pill">야시장</div>
 </div>
-<h3>아침 국수: Bun Cha Ca Hon</h3>
-<div class="route-box"><span class="label">동선</span><strong>Ponte → Bun Cha Ca Hon</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 15-25분 / 약 80,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>분짜까, 생선어묵국수</p></div>
-<div><span class="label">예상 비용</span><p>2인 180,000-250,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>마지막날 첫 식사 로컬</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Bun+Cha+Ca+Hon+Da+Nang" rel="noopener" target="_blank">📍 Bun Cha Ca Hon</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Bun+Cha+Ca+109+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Bun Cha Ca 109</span><span class="arrow">지도</span></div>
-<div class="alt-meta">로컬 국수</div>
-<div class="alt-menu">분짜까</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Mi+Quang+Co+Sau+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Mi Quang Co Sau</span><span class="arrow">지도</span></div>
-<div class="alt-meta">로컬 국수</div>
-<div class="alt-menu">미꽝</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Boutique+Hotel+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Ponte 조식</span><span class="arrow">지도</span></div>
-<div class="alt-meta">호텔 조식</div>
-<div class="alt-menu">호텔 조식·커피(조식 먹고 또 먹어도 됨)</div>
-</a></div>
-</div>
+<h3>Son Tra Night Market · 다낭 야시장</h3>
+<div class="route-box"><span class="label">동선</span><strong>해산물 식당 → Son Tra Night Market</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 해산물 식당 위치에 따라 10-25분</p></div><div><span class="label">메뉴/내용</span><p>식후 산책, 과일주스, 코코넛 아이스크림, 작은 기념품. 배부르면 음식은 생략하고 구경 위주</p></div><div><span class="label">예상 비용</span><p>2인 150,000-400,000 VND 예상 / 현금 소액</p></div><div><span class="label">운영 메모</span><p>다낭 야시장은 Son Tra Night Market을 메인으로. 해산물 먹은 뒤라 과식하지 말고 1시간 내외만</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Son+Tra+Night+Market+Da+Nang" rel="noopener" target="_blank">📍 Son Tra Night Market</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Dragon+Bridge+Da+Nang" rel="noopener" target="_blank">📍 Dragon Bridge 근처</a></div></div>
+<div class="section-box"><span class="label">대체 후보 · 메모</span><div class="alt-grid"><div class="alt-card">
+<div class="alt-title"><span>My Khe Beach 산책</span></div>
+<div class="alt-meta">야시장 생략 시</div>
+<div class="alt-menu">바다 구경, 사진, 짧은 산책</div>
+<div class="alt-note">해산물 식당이 해변 쪽이면 야시장 대신 해변으로 마무리</div>
+</div><div class="alt-card">
+<div class="alt-title"><span>바로 호텔 복귀</span></div>
+<div class="alt-meta">체력 보호</div>
+<div class="alt-menu">샤워, 쇼핑품 정리</div>
+<div class="alt-note">출국 전날이라 피곤하면 무리하지 않기</div>
+</div></div></div>
 
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-00" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-08" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0601-08">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0601-08">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0601-08" hidden="">완료 해제</button>
+</div>
+</article>
+
+<article class="schedule-card" data-card-id="0601-09" data-day="0601" data-type="이동">
+<div class="card-top">
+<div class="time-pill">21:10-21:40</div>
+<div class="type-pill">이동</div>
+</div>
+<h3>야시장 후 호텔 복귀</h3>
+<div class="route-box"><span class="label">동선</span><strong>Son Tra Night Market → 104 Hồ Nghinh 호텔</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 약 10-20분</p></div><div><span class="label">메뉴/내용</span><p>호텔 복귀, 샤워, 한시장 쇼핑품 1차 정리, 다음날 마사지/출국 준비</p></div><div><span class="label">예상 비용</span><p>Grab 카드 결제 기준 / 현금 계산 제외</p></div><div><span class="label">운영 메모</span><p>야시장에서 산 음식은 호텔 냉장/쓰레기 처리 가능한 것만. 다음날 Lotte Mart 보충 쇼핑 예정</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=104+H%E1%BB%93+Nghinh%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng+550000%2C+Vietnam" rel="noopener" target="_blank">📍 다낭 호텔 104 Hồ Nghinh</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Son+Tra+Night+Market+Da+Nang" rel="noopener" target="_blank">📍 Son Tra Night Market</a></div></div>
+
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0601" data-expense-input="0601-09" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0601-09">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0601-09">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0601-09" hidden="">완료 해제</button>
+</div>
+</article>
+</div>
+</section>
+
+<section class="day-section" data-day="0602">
+<div class="day-head">
+<div><p class="eyebrow">6/2 화</p><h2>Well Healthy Spa · 로컬 점심 · Mân Thái · Lotte Mart · 공항</h2><p>조식 후 안 씻고 바로 스파, 숙소 복귀 후 간단히 씻고 나가서 현지식 점심. Đồng Đình Museum은 제외하고 Son Tra 쪽 로컬 해안/대나무 정원만 짧게 본 뒤 Lotte Mart, 포장, 저녁, 공항 이동.</p></div>
+<button class="day-reset" data-reset-day="0602">이 날짜 완료 해제</button>
+</div>
+<div class="card-stack">
+
+<article class="schedule-card" data-card-id="0602-00" data-day="0602" data-type="식사">
+<div class="card-top">
+<div class="time-pill">08:30-09:15</div>
+<div class="type-pill">조식</div>
+</div>
+<h3>마지막날 조식 · 스파 전 가볍게</h3>
+<div class="route-box"><span class="label">동선</span><strong>104 Hồ Nghinh 호텔 조식/근처 식당</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>호텔 내부 또는 도보권. 외부 이동은 Grab 카드</p></div><div><span class="label">메뉴/내용</span><p>안 씻고 바로 스파 갈 예정이므로 조식은 가볍게. 커피, 과일, 빵/계란 정도</p></div><div><span class="label">예상 비용</span><p>호텔 조식 포함 또는 2인 180,000-300,000 VND</p></div><div><span class="label">운영 메모</span><p>오일 마사지 전이라 과식 금지. 귀중품·카드·소액 현금만 챙기기</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=104+H%E1%BB%93+Nghinh%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng+550000%2C+Vietnam" rel="noopener" target="_blank">📍 104 Hồ Nghinh 호텔</a></div></div>
+
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-00" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
 <select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-00">
 <option value="cash">현금</option>
 <option value="card">카드</option>
@@ -1895,446 +1841,21 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <button class="undo-btn" data-undo="0602-00" hidden="">완료 해제</button>
 </div>
 </article>
-<article class="schedule-card" data-card-id="0602-01" data-day="0602" data-type="카페">
+<article class="schedule-card" data-card-id="0602-wellhealthy-go" data-day="0602" data-type="이동">
 <div class="card-top">
-<div class="time-pill">09:15-10:00</div>
-<div class="type-pill">카페</div>
-</div>
-<h3>카페: XLIII Coffee</h3>
-<div class="route-box"><span class="label">동선</span><strong>Bun Cha Ca Hon → XLIII Coffee</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 15-25분 / 약 80,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>필터커피, 아이스라떼</p></div>
-<div><span class="label">예상 비용</span><p>2인 200,000-280,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>너무 오래 머물면 쇼핑 시간이 밀림</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=XLIII+Coffee+Da+Nang" rel="noopener" target="_blank">📍 XLIII Coffee</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=O2o+First+Roast+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>O2o First Roast</span><span class="arrow">지도</span></div>
-<div class="alt-meta">스페셜티 카페</div>
-<div class="alt-menu">커피, 필터커피</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Lighthouse+Coffee+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Lighthouse</span><span class="arrow">지도</span></div>
-<div class="alt-meta">카페</div>
-<div class="alt-menu">커피, 음료</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Bikini+Bottom+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Bikini Bottom</span><span class="arrow">지도</span></div>
-<div class="alt-meta">캐주얼 카페·브런치</div>
-<div class="alt-menu">음료, 버거, 브런치</div>
-</a></div>
-</div>
-
-<div class="expense-entry">
-<span class="label">실제 지출 입력</span>
-<div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-01" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-01">
-<option value="cash">현금</option>
-<option value="card">카드</option>
-<option value="excluded">기결제/제외</option>
-</select>
-</div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
-</div>
-<div class="card-actions">
-<button class="complete-btn" data-complete="0602-01">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0602-01" hidden="">완료 해제</button>
-</div>
-</article>
-<article class="schedule-card" data-card-id="0602-02" data-day="0602" data-type="휴식">
-<div class="card-top">
-<div class="time-pill">10:00-12:00</div>
-<div class="type-pill">휴식</div>
-</div>
-<h3>호텔 휴식</h3>
-<div class="route-box"><span class="label">동선</span><strong>XLIII → Ponte</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 10-25분 / 약 80,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>샤워 전 휴식, 짐 정리</p></div>
-<div><span class="label">예상 비용</span><p>0 VND</p></div>
-<div><span class="label">운영 메모</span><p>마지막날 컨디션 유지</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Boutique+Hotel+Da+Nang" rel="noopener" target="_blank">📍 Ponte Boutique Hotel Da Nang</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보</span>
-<div class="alt-grid"><div class="alt-card">
-<div class="alt-title"><span>호텔 수영</span></div>
-<div class="alt-meta">휴식</div>
-<div class="alt-menu">수영·낮잠</div>
-</div><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=My+My+Fruit+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>My My Fruit</span><span class="arrow">지도</span></div>
-<div class="alt-meta">과일 배달</div>
-<div class="alt-menu">컷과일, 망고</div>
-</a></div>
-</div>
-
-<div class="expense-entry">
-<span class="label">실제 지출 입력</span>
-<div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-02" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0602-02">
-<option value="cash">현금</option>
-<option value="card">카드</option>
-<option value="excluded">기결제/제외</option>
-</select>
-</div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
-</div>
-<div class="card-actions">
-<button class="complete-btn" data-complete="0602-02">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0602-02" hidden="">완료 해제</button>
-</div>
-</article>
-<article class="schedule-card" data-card-id="0602-03" data-day="0602" data-type="식사">
-<div class="card-top">
-<div class="time-pill">12:00-12:40</div>
-<div class="type-pill">식사</div>
-</div>
-<h3>점심: Bep Hen Da Nang</h3>
-<div class="route-box"><span class="label">동선</span><strong>Ponte → Bep Hen</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 15-25분 / 약 80,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>마늘새우, 모닝글로리, 밥</p></div>
-<div><span class="label">예상 비용</span><p>2인 350,000-500,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>-</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Bep+Hen+Da+Nang" rel="noopener" target="_blank">📍 Bep Hen</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Mi+Quang+Co+Sau+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Mi Quang Co Sau</span><span class="arrow">지도</span></div>
-<div class="alt-meta">로컬 국수</div>
-<div class="alt-menu">미꽝</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Roots+Plant-Based+Cafe+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Roots Plant-Based Cafe</span><span class="arrow">지도</span></div>
-<div class="alt-meta">비건·가벼운 식사</div>
-<div class="alt-menu">샐러드, 스무디볼, 플랜트베이스 메뉴</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Thia+Go+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Thia Go Da Nang</span><span class="arrow">지도</span></div>
-<div class="alt-meta">베트남식 캐주얼</div>
-<div class="alt-menu">반쎄오, 쌀국수, 월남쌈</div>
-</a></div>
-</div>
-
-<div class="expense-entry">
-<span class="label">실제 지출 입력</span>
-<div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-03" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-03">
-<option value="cash">현금</option>
-<option value="card">카드</option>
-<option value="excluded">기결제/제외</option>
-</select>
-</div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
-</div>
-<div class="card-actions">
-<button class="complete-btn" data-complete="0602-03">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0602-03" hidden="">완료 해제</button>
-</div>
-</article>
-<article class="schedule-card" data-card-id="0602-04" data-day="0602" data-type="쇼핑">
-<div class="card-top">
-<div class="time-pill">13:20-14:50</div>
-<div class="type-pill">쇼핑</div>
-</div>
-<h3>한시장 기념품 쇼핑</h3>
-<div class="route-box"><span class="label">동선</span><strong>Bep Hen → Han Market</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 10-20분 / 약 80,000-100,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>망고젤리, 코코넛커피, 베트남커피, 캐슈넛, 말린망고, 코코넛 크래커</p></div>
-<div><span class="label">예상 비용</span><p>예산 1,150,000-2,300,000 VND / 현금 중심 / 흥정 필요</p></div>
-<div><span class="label">운영 메모</span><p>1층 식품·건과일·커피 구역에서 3곳만 비교 후 구매</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Han+Market+Da+Nang" rel="noopener" target="_blank">📍 Han Market</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Lotte+Mart+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Lotte Mart</span><span class="arrow">지도</span></div>
-<div class="alt-meta">정찰제 마트</div>
-<div class="alt-menu">커피, 과자, 말린과일, 소스</div>
-<div class="alt-note">흥정 피곤할 때</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=GO%21+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>GO! Da Nang</span><span class="arrow">지도</span></div>
-<div class="alt-meta">정찰제 마트</div>
-<div class="alt-menu">식품 선물, 과자, 커피</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=WinMart+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>WinMart</span><span class="arrow">지도</span></div>
-<div class="alt-meta">소형 마트</div>
-<div class="alt-menu">간단한 과자·음료</div>
-</a></div>
-</div>
-
-<div class="expense-entry">
-<span class="label">실제 지출 입력</span>
-<div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-04" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-04">
-<option value="cash">현금</option>
-<option value="card">카드</option>
-<option value="excluded">기결제/제외</option>
-</select>
-</div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
-</div>
-<div class="card-actions">
-<button class="complete-btn" data-complete="0602-04">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0602-04" hidden="">완료 해제</button>
-</div>
-</article>
-<article class="schedule-card" data-card-id="0602-05" data-day="0602" data-type="휴식">
-<div class="card-top">
-<div class="time-pill">14:50-16:55</div>
-<div class="type-pill">휴식</div>
-</div>
-<h3>호텔 복귀·샤워·포장</h3>
-<div class="route-box"><span class="label">동선</span><strong>Han Market → Ponte</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>Grab 15-25분 / 약 100,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>샤워, 포장, 낮잠, 충전</p></div>
-<div><span class="label">예상 비용</span><p>0 VND</p></div>
-<div><span class="label">운영 메모</span><p>-</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Boutique+Hotel+Da+Nang" rel="noopener" target="_blank">📍 Ponte Boutique Hotel Da Nang</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보</span>
-<div class="alt-grid"><div class="alt-card">
-<div class="alt-title"><span>짐 보관</span></div>
-<div class="alt-meta">운영</div>
-<div class="alt-menu">로비 보관·공용 샤워 확인</div>
-</div><div class="alt-card">
-<div class="alt-title"><span>커피 배달</span></div>
-<div class="alt-meta">카페</div>
-<div class="alt-menu">아이스커피·음료</div>
-</div></div>
-</div>
-
-<div class="expense-entry">
-<span class="label">실제 지출 입력</span>
-<div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-05" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0602-05">
-<option value="cash">현금</option>
-<option value="card">카드</option>
-<option value="excluded">기결제/제외</option>
-</select>
-</div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
-</div>
-<div class="card-actions">
-<button class="complete-btn" data-complete="0602-05">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0602-05" hidden="">완료 해제</button>
-</div>
-</article>
-<article class="schedule-card" data-card-id="0602-snack-01" data-day="0602" data-type="군것질">
-<div class="card-top">
-<div class="time-pill">15:30-16:00</div>
-<div class="type-pill">군것질</div>
-</div>
-<h3>호텔에서 먹을 간식: 케이크·반미·과일</h3>
-<div class="route-box"><span class="label">동선</span><strong>Han Market → Ponte / 쇼핑품 정리하면서 디저트 타임</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>호텔 내부 또는 GrabFood/배달 수령</p></div>
-<div><span class="label">메뉴/내용</span><p>케이크·페이스트리, 반미, 컷과일, 망고 디저트. 저녁 전이라 1-2개만</p></div>
-<div><span class="label">예상 비용</span><p>2인 150,000-400,000 VND 예상</p></div>
-<div><span class="label">운영 메모</span><p>바로 먹을 간식 / 캐리어에 넣을 선물 / 공항용 간식 분리</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Boutique+Hotel+Da+Nang" rel="noopener" target="_blank">📍 Ponte Boutique Hotel</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=2+Ladies+Kitchen+Da+Nang" rel="noopener" target="_blank">📍 2 Ladies Kitchen</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Bread+%26+Butter+Bakery+Da+Nang" rel="noopener" target="_blank">📍 Bread &amp; Butter Bakery</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 바로 먹는 간식/디저트</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=2+Ladies+Kitchen+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>2 Ladies Kitchen</span><span class="arrow">지도</span></div>
-<div class="alt-meta">반미·커피</div>
-<div class="alt-menu">반미, 커피, 채식/고기 필링</div>
-<div class="alt-note">다낭에서 반미 먹고 싶을 때</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Bread+%26+Butter+Bakery+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Bread &amp; Butter Bakery</span><span class="arrow">지도</span></div>
-<div class="alt-meta">케이크·페이스트리</div>
-<div class="alt-menu">크루아상, 케이크, 페이스트리</div>
-<div class="alt-note">케이크류 먹고 싶을 때</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=My+My+Fruit+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>My My Fruit</span><span class="arrow">지도</span></div>
-<div class="alt-meta">과일 배달</div>
-<div class="alt-menu">컷과일, 망고, 망고스틴</div>
-<div class="alt-note">호텔 로비 수령 후보</div>
-</a></div>
-</div>
-
-<div class="expense-entry">
-<span class="label">실제 지출 입력</span>
-<div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-snack-01" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-snack-01">
-<option value="cash">현금</option>
-<option value="card">카드</option>
-<option value="excluded">기결제/제외</option>
-</select>
-</div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
-</div>
-<div class="card-actions">
-<button class="complete-btn" data-complete="0602-snack-01">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0602-snack-01" hidden="">완료 해제</button>
-</div>
-</article>
-<article class="schedule-card" data-card-id="0602-06" data-day="0602" data-type="식사">
-<div class="card-top">
-<div class="time-pill">17:00-17:55</div>
-<div class="type-pill">식사</div>
-</div>
-<h3>호텔 도보권 저녁: Barbecue Factory</h3>
-<div class="route-box"><span class="label">동선</span><strong>Ponte → Barbecue Factory 또는 Ponte 도보권 식당</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>도보 5-15분 목표. 실제 예약 주소 기준 Google Maps에서 도보 시간 재확인</p></div>
-<div><span class="label">메뉴/내용</span><p>BBQ 플래터 소/중, 고기, 가벼운 사이드</p></div>
-<div><span class="label">예상 비용</span><p>주문량에 따라 변동. 비행 전 과식 금지</p></div>
-<div><span class="label">운영 메모</span><p>17:55까지 Ponte 복귀 목표</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Barbecue+Factory+Da+Nang" rel="noopener" target="_blank">📍 Barbecue Factory</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Boutique+Hotel+Da+Nang" rel="noopener" target="_blank">📍 Ponte Boutique Hotel</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Mi+Quang+Co+Sau+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Mi Quang Co Sau</span><span class="arrow">지도</span></div>
-<div class="alt-meta">로컬 국수</div>
-<div class="alt-menu">미꽝</div>
-<div class="alt-note">도보권이면 선택</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Bun+Cha+Ca+109+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Bun Cha Ca 109</span><span class="arrow">지도</span></div>
-<div class="alt-meta">로컬 국수</div>
-<div class="alt-menu">분짜까</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Roots+Plant-Based+Cafe+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Roots Plant-Based Cafe</span><span class="arrow">지도</span></div>
-<div class="alt-meta">가벼운 식사</div>
-<div class="alt-menu">샐러드, 스무디볼</div>
-</a></div>
-</div>
-
-<div class="expense-entry">
-<span class="label">실제 지출 입력</span>
-<div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-06" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-06">
-<option value="cash">현금</option>
-<option value="card">카드</option>
-<option value="excluded">기결제/제외</option>
-</select>
-</div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
-</div>
-<div class="card-actions">
-<button class="complete-btn" data-complete="0602-06">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0602-06" hidden="">완료 해제</button>
-</div>
-</article>
-<article class="schedule-card" data-card-id="0602-07" data-day="0602" data-type="마사지">
-<div class="card-top">
-<div class="time-pill">18:30-20:00</div>
-<div class="type-pill">마사지</div>
-</div>
-<h3>출국 전 마사지: Herbal Spa An Thuong</h3>
-<div class="route-box"><span class="label">동선</span><strong>Ponte ↔ Herbal Spa An Thuong</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>스파 픽업·드랍 요청 또는 Grab 10-25분 / 0-120,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>90분 마사지</p></div>
-<div><span class="label">예상 비용</span><p>2인 약 1,200,000-1,800,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>스파 픽업·드랍 또는 공항 동선 연계 가능 여부 확인</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Herbal+Spa+An+Thuong+Da+Nang" rel="noopener" target="_blank">📍 Herbal Spa An Thuong</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보 · 음식 종류/대표 메뉴</span>
-<div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Dahan+Spa+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Dahan Spa</span><span class="arrow">지도</span></div>
-<div class="alt-meta">마사지</div>
-<div class="alt-menu">바디 마사지, 아로마 마사지</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Trees+Spa+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Trees Spa</span><span class="arrow">지도</span></div>
-<div class="alt-meta">마사지</div>
-<div class="alt-menu">바디 마사지, 릴랙스 코스</div>
-</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Babylon+Garden+Spa+Da+Nang" rel="noopener" target="_blank">
-<div class="alt-title"><span>Babylon Garden Spa</span><span class="arrow">지도</span></div>
-<div class="alt-meta">마사지</div>
-<div class="alt-menu">바디 마사지, 풋 마사지</div>
-</a></div>
-</div>
-
-<div class="expense-entry">
-<span class="label">실제 지출 입력</span>
-<div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-07" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0602-07">
-<option value="cash">현금</option>
-<option value="card">카드</option>
-<option value="excluded">기결제/제외</option>
-</select>
-</div>
-<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
-</div>
-<div class="card-actions">
-<button class="complete-btn" data-complete="0602-07">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0602-07" hidden="">완료 해제</button>
-</div>
-</article>
-<article class="schedule-card" data-card-id="0602-08" data-day="0602" data-type="이동">
-<div class="card-top">
-<div class="time-pill">20:00-21:40</div>
+<div class="time-pill">09:15-09:50</div>
 <div class="type-pill">이동</div>
 </div>
-<h3>짐 픽업 · 공항 이동</h3>
-<div class="route-box"><span class="label">동선</span><strong>스파 → 호텔 → 다낭 공항</strong></div>
-<div class="detail-grid">
-<div><span class="label">이동</span><p>픽드랍·Grab 20-30분 / 공항 이동 약 150,000 VND</p></div>
-<div><span class="label">메뉴/내용</span><p>짐 픽업 후 21:40 전후 공항 도착. 늦어도 22:00 전 도착</p></div>
-<div><span class="label">예상 비용</span><p>공항 이동 약 150,000 VND</p></div>
-<div><span class="label">운영 메모</span><p>6/3 00:40 출국 기준</p></div>
-</div>
-<div class="section-box">
-<span class="label">가는 곳</span>
-<div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Da+Nang+International+Airport" rel="noopener" target="_blank">📍 Da Nang International Airport</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Ponte+Boutique+Hotel+Da+Nang" rel="noopener" target="_blank">📍 Ponte Boutique Hotel</a></div>
-</div>
-<div class="section-box">
-<span class="label">대체 후보</span>
-<div class="alt-grid"><div class="alt-card">
-<div class="alt-title"><span>스파에서 바로 공항</span></div>
-<div class="alt-meta">운영</div>
-<div class="alt-menu">짐을 스파에 맡길 수 있을 때만</div>
-</div><div class="alt-card">
-<div class="alt-title"><span>Ponte 경유</span></div>
-<div class="alt-meta">운영</div>
-<div class="alt-menu">짐 픽업·샤워 동선 안정</div>
-</div></div>
-</div>
+<h3>호텔 → Well Healthy Spa 이동</h3>
+<div class="route-box"><span class="label">동선</span><strong>104 Hồ Nghinh 호텔 → Well Healthy Spa</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 또는 스파 픽업 가능 여부 확인 / 15-30분 예상</p></div><div><span class="label">메뉴/내용</span><p>예약 시간보다 10분 일찍 도착 목표. 예약자명·코스·잔금 확인</p></div><div><span class="label">예상 비용</span><p>Grab 카드 기준 / 현금 계산 제외</p></div><div><span class="label">운영 메모</span><p>안 씻고 바로 이동. 여권은 호텔에 두고 결제수단만 지참</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Well+Healthy+Spa+Da+Nang" rel="noopener" target="_blank">📍 Well Healthy Spa</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=104+H%E1%BB%93+Nghinh%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng+550000%2C+Vietnam" rel="noopener" target="_blank">📍 104 Hồ Nghinh 호텔</a></div></div>
 
 <div class="expense-entry">
 <span class="label">실제 지출 입력</span>
 <div class="expense-input-row">
-<input autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-08" type="text" inputmode="text" autocapitalize="off" spellcheck="false" enterkeyhint="done" placeholder="예: 480000 / 48만동 / 480k"/>
-<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-08">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-wellhealthy-go" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0602-wellhealthy-go">
 <option value="cash">현금</option>
 <option value="card">카드</option>
 <option value="excluded">기결제/제외</option>
@@ -2343,10 +1864,354 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
 </div>
 <div class="card-actions">
-<button class="complete-btn" data-complete="0602-08">완료하고 일정 숨기기</button>
-<button class="undo-btn" data-undo="0602-08" hidden="">완료 해제</button>
+<button class="complete-btn" data-complete="0602-wellhealthy-go">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-wellhealthy-go" hidden="">완료 해제</button>
 </div>
-</article></div>
+</article>
+<article class="schedule-card" data-card-id="0602-wellhealthy" data-day="0602" data-type="마사지">
+<div class="card-top">
+<div class="time-pill">10:00-11:30</div>
+<div class="type-pill">마사지</div>
+</div>
+<h3>Well Healthy Spa 오전 마사지</h3>
+<div class="route-box"><span class="label">동선</span><strong>Well Healthy Spa 내부</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>이동 없음</p></div><div><span class="label">메뉴/내용</span><p>90분 마사지 기준. 강도는 중간 이하로 요청해서 출국 전 컨디션 보존</p></div><div><span class="label">예상 비용</span><p>예약 코스 기준 / 예약금 있으면 잔금만 입력</p></div><div><span class="label">운영 메모</span><p>숙소 복귀 후 씻을 예정이므로 오일 잔여감은 크게 신경 쓰지 않아도 됨</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Well+Healthy+Spa+Da+Nang" rel="noopener" target="_blank">📍 Well Healthy Spa</a></div></div>
+<div class="section-box"><span class="label">스파 메모</span><div class="alt-grid"><div class="alt-card">
+<div class="alt-title"><span>체크할 것</span></div>
+<div class="alt-meta">예약 확인</div>
+<div class="alt-menu">예약 시간, 코스, 잔금, 픽업/드랍 가능 여부</div>
+<div class="alt-note">카드 수수료 있으면 현금/카드 중 유리한 방식 선택</div>
+</div><div class="alt-card">
+<div class="alt-title"><span>컨디션</span></div>
+<div class="alt-meta">출국일</div>
+<div class="alt-menu">강도 중간 이하, 물 충분히 마시기</div>
+<div class="alt-note">마사지 후 바로 무리한 관광 금지</div>
+</div></div></div>
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-wellhealthy" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0602-wellhealthy">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0602-wellhealthy">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-wellhealthy" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0602-wellhealthy-back" data-day="0602" data-type="복귀">
+<div class="card-top">
+<div class="time-pill">11:30-12:10</div>
+<div class="type-pill">복귀</div>
+</div>
+<h3>스파 → 숙소 복귀 · 간단 샤워</h3>
+<div class="route-box"><span class="label">동선</span><strong>Well Healthy Spa → 104 Hồ Nghinh 호텔</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>스파 드랍 요청 또는 Grab 카드 / 15-30분 예상</p></div><div><span class="label">메뉴/내용</span><p>숙소 복귀 후 오일감만 가볍게 씻고, 점심 나갈 옷으로 환복</p></div><div><span class="label">예상 비용</span><p>Grab 카드 기준 / 현금 계산 제외</p></div><div><span class="label">운영 메모</span><p>긴 샤워·낮잠은 금지. 12:40 전에는 점심 이동 시작</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=104+H%E1%BB%93+Nghinh%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng+550000%2C+Vietnam" rel="noopener" target="_blank">📍 104 Hồ Nghinh 호텔</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Well+Healthy+Spa+Da+Nang" rel="noopener" target="_blank">📍 Well Healthy Spa</a></div></div>
+
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-wellhealthy-back" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0602-wellhealthy-back">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0602-wellhealthy-back">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-wellhealthy-back" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0602-lunch-buncha" data-day="0602" data-type="식사">
+<div class="card-top">
+<div class="time-pill">12:40-13:30</div>
+<div class="type-pill">점심</div>
+</div>
+<h3>점심: Bún Chả Cá Hờn</h3>
+<div class="route-box"><span class="label">동선</span><strong>호텔 → Bún Chả Cá Hờn</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 15-25분</p></div><div><span class="label">메뉴/내용</span><p>주문: bún chả cá đặc biệt 2개. 어묵국수에 게살·튀긴/삶은 어묵 토핑. 기름진 BBQ 전이라 가볍게</p></div><div><span class="label">예상 비용</span><p>2인 120,000-220,000 VND 예상</p></div><div><span class="label">운영 메모</span><p>한식 제외, 현지식 확정. 매운 양념은 조금씩만 넣기</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Bun+Cha+Ca+Hon+Da+Nang" rel="noopener" target="_blank">📍 Bún Chả Cá Hờn</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=104+H%E1%BB%93+Nghinh%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng+550000%2C+Vietnam" rel="noopener" target="_blank">📍 104 Hồ Nghinh 호텔</a></div></div>
+<div class="section-box"><span class="label">대체 후보 · 현지식</span><div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Banh+Xeo+Ba+Duong+Da+Nang" rel="noopener" target="_blank">
+<div class="alt-title"><span>Bánh Xèo Bà Dưỡng</span><span class="arrow">지도</span></div>
+<div class="alt-meta">현지식·반쎄오</div>
+<div class="alt-menu">반쎄오, 넴루이, 라이스페이퍼</div>
+<div class="alt-note">튀김이라 마사지 직후엔 조금 무거울 수 있음</div>
+</a><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Mi+Quang+1A+Da+Nang" rel="noopener" target="_blank">
+<div class="alt-title"><span>Mì Quảng 1A</span><span class="arrow">지도</span></div>
+<div class="alt-meta">현지 국수</div>
+<div class="alt-menu">미꽝, 닭/새우/돼지고기 토핑</div>
+<div class="alt-note">분짜까가 안 당기면 백업</div>
+</a></div></div>
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-lunch-buncha" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-lunch-buncha">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0602-lunch-buncha">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-lunch-buncha" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0602-sontra-bamboo" data-day="0602" data-type="관광">
+<div class="card-top">
+<div class="time-pill">13:45-14:30</div>
+<div class="type-pill">로컬 관광 1</div>
+</div>
+<h3>Sơn Trà Tịnh Viên · 대나무 정원</h3>
+<div class="route-box"><span class="label">동선</span><strong>Bún Chả Cá Hờn → Sơn Trà Tịnh Viên</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab/차량 20-35분. Son Tra 산쪽이라 기사에게 다음 장소까지 이동 가능 여부 확인</p></div><div><span class="label">메뉴/내용</span><p>대나무 보존 정원, 조용한 산책, 초록 배경 사진. 사찰 메인 관광이 아니라 짧은 자연/정원 구경으로 처리</p></div><div><span class="label">예상 비용</span><p>입장료 무료 또는 소액 기부 가능성 / 현금 소액 준비</p></div><div><span class="label">운영 메모</span><p>Đồng Đình Museum은 제외. 여기도 끌리지 않으면 과감히 생략하고 Mân Thái만 본 뒤 Lotte Mart로 이동</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Son+Tra+Tinh+Vien+Da+Nang" rel="noopener" target="_blank">📍 Sơn Trà Tịnh Viên</a></div></div>
+<div class="section-box"><span class="label">대체 후보</span><div class="alt-grid"><div class="alt-card">
+<div class="alt-title"><span>바로 Mân Thái</span></div>
+<div class="alt-meta">체력 보호</div>
+<div class="alt-menu">어촌/해변 산책만</div>
+<div class="alt-note">덥거나 차량 잡기 애매하면 관광 1곳만 보기</div>
+</div><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Tien+Sa+Lighthouse+Da+Nang" rel="noopener" target="_blank">
+<div class="alt-title"><span>Tiên Sa Lighthouse</span><span class="arrow">지도</span></div>
+<div class="alt-meta">뷰포인트 후보</div>
+<div class="alt-menu">바다 전망, 사진</div>
+<div class="alt-note">길이 멀면 출국일에는 비추천</div>
+</a></div></div>
+
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-sontra-bamboo" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-sontra-bamboo">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0602-sontra-bamboo">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-sontra-bamboo" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0602-manthai" data-day="0602" data-type="관광">
+<div class="card-top">
+<div class="time-pill">14:40-15:20</div>
+<div class="type-pill">로컬 관광 2</div>
+</div>
+<h3>Mân Thái Fishing Village · 바구니배/어촌 산책</h3>
+<div class="route-box"><span class="label">동선</span><strong>Sơn Trà Tịnh Viên → Mân Thái Fishing Village / Beach</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>차량 10-25분. Son Tra 해안 방향</p></div><div><span class="label">메뉴/내용</span><p>바구니배, 어촌 분위기, 해변 쪽 짧은 산책. 관광지보다 생활감 있는 로컬 해안 풍경</p></div><div><span class="label">예상 비용</span><p>입장료 없음 / 음료 사면 2인 80,000-150,000 VND</p></div><div><span class="label">운영 메모</span><p>한낮이라 길게 보지 말고 30-40분만. 냄새·더위 심하면 사진만 찍고 Lotte Mart로 이동</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Man+Thai+Fishing+Village+Da+Nang" rel="noopener" target="_blank">📍 Mân Thái Fishing Village</a><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Man+Thai+Beach+Da+Nang" rel="noopener" target="_blank">📍 Mân Thái Beach</a></div></div>
+<div class="section-box"><span class="label">대체 후보</span><div class="alt-grid"><a class="alt-card" href="https://www.google.com/maps/search/?api=1&amp;query=Son+Tra+Tinh+Vien+Da+Nang" rel="noopener" target="_blank">
+<div class="alt-title"><span>Son Tra Tinh Vien</span><span class="arrow">지도</span></div>
+<div class="alt-meta">대나무 숲</div>
+<div class="alt-menu">조용한 대나무 보존 구역</div>
+<div class="alt-note">택시 접근성 확인 필요. 더 녹색/숲 느낌 원할 때</div>
+</a><div class="alt-card">
+<div class="alt-title"><span>바로 Lotte Mart</span></div>
+<div class="alt-meta">체력 보호</div>
+<div class="alt-menu">너무 더우면 관광 2곳 중 하나만</div>
+<div class="alt-note">출국일이라 무리하지 않기</div>
+</div></div></div>
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-manthai" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="cash" data-payment-select="0602-manthai">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0602-manthai">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-manthai" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0602-lottemart" data-day="0602" data-type="쇼핑">
+<div class="card-top">
+<div class="time-pill">15:30-16:50</div>
+<div class="type-pill">쇼핑</div>
+</div>
+<h3>Lotte Mart에서 부족한 선물 보완</h3>
+<div class="route-box"><span class="label">동선</span><strong>Mân Thái → Lotte Mart Đà Nẵng</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 25-40분</p></div><div><span class="label">메뉴/내용</span><p>한시장에서 못 산 것만 보충: 커피, 과자, 코코넛 크래커, 캐슈넛, 망고젤리, 말린망고</p></div><div><span class="label">예상 비용</span><p>보충 쇼핑 800,000-1,800,000 VND / 카드 권장</p></div><div><span class="label">운영 메모</span><p>액체류·무거운 병 제품은 수하물 무게 고려. 과소비 방지 위해 리스트 기준 구매</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Lotte+Mart+Da+Nang" rel="noopener" target="_blank">📍 Lotte Mart Đà Nẵng</a></div></div>
+<div class="section-box"><span class="label">구매 우선순위</span><div class="alt-grid"><div class="alt-card">
+<div class="alt-title"><span>직장동료용</span></div>
+<div class="alt-meta">대량 선물</div>
+<div class="alt-menu">망고젤리, 코코넛커피, 코코넛 크래커</div>
+<div class="alt-note">개별포장 위주</div>
+</div><div class="alt-card">
+<div class="alt-title"><span>가족/친구용</span></div>
+<div class="alt-meta">조금 좋은 것</div>
+<div class="alt-menu">캐슈넛, 말린망고, 베트남 커피</div>
+<div class="alt-note">부피·무게 확인</div>
+</div></div></div>
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-lottemart" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0602-lottemart">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0602-lottemart">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-lottemart" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0602-pack" data-day="0602" data-type="정리">
+<div class="card-top">
+<div class="time-pill">17:10-18:30</div>
+<div class="type-pill">포장</div>
+</div>
+<h3>숙소 복귀 · 샤워/포장/수하물 정리</h3>
+<div class="route-box"><span class="label">동선</span><strong>Lotte Mart → 104 Hồ Nghinh 호텔</strong></div>
+<div class="detail-grid"><div><span class="label">이동</span><p>Grab 카드 / 20-35분</p></div><div><span class="label">메뉴/내용</span><p>쇼핑품 캐리어 정리, 액체류 수하물 분리, 보조배터리 기내용 분리, 저녁 나갈 준비</p></div><div><span class="label">예상 비용</span><p>0 VND</p></div><div><span class="label">운영 메모</span><p>저녁 후 바로 공항으로 가기 위해 캐리어를 거의 완성. 가능하면 18:30 전에 호텔에서 짐 픽업까지 끝내기</p></div></div>
+<div class="section-box"><span class="label">가는 곳</span><div class="map-row"><a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=104+H%E1%BB%93+Nghinh%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng+550000%2C+Vietnam" rel="noopener" target="_blank">📍 104 Hồ Nghinh 호텔</a></div></div>
+
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-pack" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="excluded" data-payment-select="0602-pack">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0602-pack">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-pack" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0602-dinner" data-day="0602" data-type="식사">
+<div class="card-top">
+<div class="time-pill">18:40-19:50</div>
+<div class="type-pill">저녁</div>
+</div>
+<h3>저녁: Pizza 4P’s Da Nang</h3>
+<div class="route-box"><span class="label">동선</span><strong>104 Hồ Nghinh 호텔 → Pizza 4P’s Hoàng Văn Thụ → 다낭 공항</strong></div>
+<div class="detail-grid">
+<div><span class="label">이동</span><p>Grab 카드 / 호텔에서 15-25분 예상. 식후 공항까지 바로 이동</p></div>
+<div><span class="label">메뉴/내용</span><p>부라타, 하프앤하프 피자, 파스타/샐러드. 비행 전이라 치즈·크림 과식 금지</p></div>
+<div><span class="label">예상 비용</span><p>2인 700,000-1,300,000 VND 예상 / 카드 추천</p></div>
+<div><span class="label">운영 메모</span><p>예약 권장. 캐리어는 호텔에서 픽업 후 이동하거나, 식당에 짐 보관 가능 여부를 현장에서 확인</p></div>
+</div>
+<div class="section-box">
+<span class="label">가는 곳</span>
+<div class="map-row">
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Pizza+4P%27s+Hoang+Van+Thu+Da+Nang" rel="noopener" target="_blank">📍 Pizza 4P’s Hoàng Văn Thụ</a>
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=104+H%E1%BB%93+Nghinh%2C+S%C6%A1n+Tr%C3%A0%2C+%C4%90%C3%A0+N%E1%BA%B5ng+550000%2C+Vietnam" rel="noopener" target="_blank">📍 104 Hồ Nghinh 호텔</a>
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Da+Nang+International+Airport" rel="noopener" target="_blank">📍 Da Nang Airport</a>
+</div>
+</div>
+<div class="section-box">
+<span class="label">주문 메모</span>
+<div class="alt-grid">
+<div class="alt-card">
+<div class="alt-title"><span>가볍게 먹는 조합</span></div>
+<div class="alt-meta">비행 전</div>
+<div class="alt-menu">샐러드 + 하프앤하프 피자 1판 + 음료</div>
+<div class="alt-note">속 부담 적게</div>
+</div>
+<div class="alt-card">
+<div class="alt-title"><span>먹고 싶은 조합</span></div>
+<div class="alt-meta">4P’s 시그니처</div>
+<div class="alt-menu">부라타/치즈 메뉴 + 피자 + 파스타 1개</div>
+<div class="alt-note">과식하면 비행기에서 불편할 수 있음</div>
+</div>
+</div>
+</div>
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-dinner" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0602-dinner">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0602-dinner">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-dinner" hidden="">완료 해제</button>
+</div>
+</article>
+<article class="schedule-card" data-card-id="0602-airport" data-day="0602" data-type="이동">
+<div class="card-top">
+<div class="time-pill">20:10-21:30</div>
+<div class="type-pill">공항 이동</div>
+</div>
+<h3>Pizza 4P’s → 다낭 공항 이동</h3>
+<div class="route-box"><span class="label">동선</span><strong>Pizza 4P’s Hoàng Văn Thụ → 다낭 공항</strong></div>
+<div class="detail-grid">
+<div><span class="label">이동</span><p>Grab 카드 / 약 15-25분 예상. 21:30 전후 공항 도착 목표</p></div>
+<div><span class="label">메뉴/내용</span><p>식후 바로 공항 이동. 늦어도 22:00 전 도착</p></div>
+<div><span class="label">예상 비용</span><p>공항 이동 약 100,000-200,000 VND / 카드</p></div>
+<div><span class="label">운영 메모</span><p>6/3 00:40 출국 기준. 여권, 지갑, 보조배터리, 액체류 수하물, 쇼핑품 무게 확인</p></div>
+</div>
+<div class="section-box">
+<span class="label">가는 곳</span>
+<div class="map-row">
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Da+Nang+International+Airport" rel="noopener" target="_blank">📍 Da Nang International Airport</a>
+<a class="map-chip primary" href="https://www.google.com/maps/search/?api=1&amp;query=Pizza+4P%27s+Hoang+Van+Thu+Da+Nang" rel="noopener" target="_blank">📍 Pizza 4P’s Hoàng Văn Thụ</a>
+</div>
+</div>
+<div class="section-box"><span class="label">공항 전 체크</span><div class="alt-grid"><div class="alt-card">
+<div class="alt-title"><span>수하물</span></div>
+<div class="alt-meta">출국 준비</div>
+<div class="alt-menu">액체류, 젤리/식품, 보조배터리, 여권</div>
+<div class="alt-note">보조배터리는 기내, 액체류는 수하물</div>
+</div><div class="alt-card">
+<div class="alt-title"><span>시간 여유</span></div>
+<div class="alt-meta">00:40 출국</div>
+<div class="alt-menu">21:30-22:00 공항 도착 목표</div>
+<div class="alt-note">마지막날 도로 상황 감안</div>
+</div></div></div>
+<div class="expense-entry">
+<span class="label">실제 지출 입력</span>
+<div class="expense-input-row">
+<input autocapitalize="off" autocomplete="off" class="expense-input" data-day="0602" data-expense-input="0602-airport" enterkeyhint="done" inputmode="text" placeholder="예: 480000 / 48만동 / 480k" spellcheck="false" type="text"/>
+<select aria-label="결제 방식" class="payment-select" data-default-payment="card" data-payment-select="0602-airport">
+<option value="cash">현금</option>
+<option value="card">카드</option>
+<option value="excluded">기결제/제외</option>
+</select>
+</div>
+<p class="expense-mini">완료 전후 언제든 입력 가능. Grab 카드·호텔 예약분은 0원 또는 기결제/제외로 두기.</p>
+</div>
+<div class="card-actions">
+<button class="complete-btn" data-complete="0602-airport">완료하고 일정 숨기기</button>
+<button class="undo-btn" data-undo="0602-airport" hidden="">완료 해제</button>
+</div>
+</article>
+</div>
 </section>
 <div class="empty-state" id="emptyState">현재 조건에서 보이는 일정이 없습니다. 완료 일정 보기를 켜거나 날짜 필터를 바꿔주세요.</div>
 <section class="day-section guide-section" data-day="guide">
@@ -2386,7 +2251,7 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <li>호이안 과자: 호이안 북스 과자가게 / 배달 가능하면 라시에스타 수령 / 많이 사갈 후보</li>
 <li>호이안 음식: Cabbage Hoi An / 2인 250,000-400,000 VND</li>
 <li>호이안 음식: Bun Cary Hoi An / 1인 20,000-30,000 VND / 사전 주문 권장</li>
-<li>다낭 과일: My My Fruit / 150,000-300,000 VND / Ponte 로비 수령 후보</li>
+<li>다낭 과일: My My Fruit / 150,000-300,000 VND / 다낭 호텔 로비 수령 후보</li>
 <li>다낭 음식: Bhojan Indian Restaurant, Thia Go Da Nang, Roots Plant-Based Cafe</li>
 </ul>
 </article>
@@ -2395,9 +2260,9 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 <h3>군것질</h3>
 <ul>
 <li>5/30: 리조트 휴식 전에 호이안 북스 과자가게 배달/픽업 확인</li>
-<li>5/31: 자전거 후 점심 전까지 커피·주스·가벼운 디저트 하나 넣기</li>
+<li>5/31: 알라만다 마사지·점심 후 Little Pie Garden Trà Quế로 바로 이동, 이후 La Siesta 복귀</li>
 <li>6/1: 다낭 이동 전 물·포장 과자·작은 디저트 챙기기</li>
-<li>6/2: 한시장 쇼핑 후 호텔에서 바로 먹을 간식과 캐리어에 넣을 선물을 분리</li>
+<li>6/2: 조식 후 Well Healthy Spa → 숙소 샤워 → Bún Chả Cá Hờn 점심 → Sơn Trà Tịnh Viên 또는 바로 Mân Thái → Lotte Mart → 포장 → 저녁 → 공항</li>
 <li>공항용: 망고젤리, 코코넛 크래커, 캐슈넛처럼 냄새 적고 부서짐 적은 것만 따로 빼두기</li>
 </ul>
 </article>
@@ -2407,23 +2272,27 @@ h2{margin:0;font-size:clamp(20px,5vw,30px);letter-spacing:-.03em}
 </div>
 <script>
 /*
-  v25 full fix
+  v27 little pie fixed schedule
   - Uses actual HTML ids: actualTotal, cashTotal, cardTotal, cashRemain, dailyTotals
   - Uses actual select class/data attr: .payment-select / [data-payment-select]
   - Daily totals are calculated directly from current DOM inputs, so they update immediately
   - Shows per-day percentage against 10,000,000 VND cash budget
 */
-const COMPLETED_KEY = 'hoian_danang_cards_v25_fullfix_completed';
-const EXPENSE_KEY = 'hoian_danang_cards_v25_fullfix_spending';
+const COMPLETED_KEY = 'hoian_danang_cards_v29_final_review_completed';
+const EXPENSE_KEY = 'hoian_danang_cards_v29_final_review_spending';
 const CASH_BUDGET = 10000000;
 
 const LEGACY_COMPLETED_KEYS = [
+  'hoian_danang_cards_v27_littlepie_completed',
+  'hoian_danang_cards_v32_nightmarket_completed',
   'hoian_danang_cards_v23_expense_text_input_completed',
   'hoian_danang_cards_v22_expense_dawn_market_completed',
   'hoian_danang_cards_v21_0531_alamanda_morning_spa_completed'
 ];
 
 const LEGACY_EXPENSE_KEYS = [
+  'hoian_danang_cards_v27_littlepie_spending',
+  'hoian_danang_cards_v32_nightmarket_spending',
   'hoian_danang_cards_v24_expense_livefix_spending',
   'hoian_danang_expenses_v24',
   'hoian_danang_cards_v23_expense_text_input_spending',
@@ -2435,6 +2304,9 @@ let currentFilter = 'all';
 
 const body = document.body;
 const cards = [...document.querySelectorAll('.schedule-card')];
+const currentCardIds = new Set(cards.map(card => card.dataset.cardId));
+completed = new Set([...completed].filter(id => currentCardIds.has(id)));
+localStorage.setItem(COMPLETED_KEY, JSON.stringify([...completed]));
 
 function readJsonWithFallback(primaryKey, fallbackKeys, defaultValue){
   const keys = [primaryKey, ...(fallbackKeys || [])];
@@ -2794,7 +2666,7 @@ function setupExpensePanel(){
   const bodyEl = document.getElementById('expenseBody');
   if(!panel || !toggle || !bodyEl) return;
 
-  const panelKey = 'hoian_danang_expense_panel_v26_collapsed';
+  const panelKey = 'hoian_danang_expense_panel_v29_collapsed';
   const saved = localStorage.getItem(panelKey);
   const collapsed = saved === '1';
 
@@ -2813,6 +2685,14 @@ setupExpensePanel();
 loadExpenses();
 applyState();
 updateExpenseSummary();
+</script>
+
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
 </script>
 </body>
 </html>
