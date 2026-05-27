@@ -1,0 +1,9 @@
+{
+  "name": "호이안 · 다낭 일정표",
+  "short_name": "호이안다낭",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f6f4ee",
+  "theme_color": "#6f8f84",
+  "lang": "ko"
+}
